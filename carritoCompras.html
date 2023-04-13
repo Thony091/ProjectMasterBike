@@ -16,8 +16,7 @@
     <link rel="stylesheet" href="/CSS/styles.css">
   </head>
   <body>
-    <div class="container-fluid">
-      <header>      
+    <header>      
         <div class="row col">
             <nav class=" navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
@@ -36,10 +35,10 @@
                         <a class="nav-link" href="/Web/Productos/productosYservicios.html"><span>Productos & Servicios</span></a>
                       </li>
                       <li class="nav-item menu__item">
-                        <a class="nav-link active" href="/Web/Apartado Usuario/login.html"><span>Login</span></a>
+                        <a class="nav-link" href="/Web/Apartado Usuario/login.html"><span>Login</span></a>
                       </li>
                       <li class="nav-item menu__item">
-                        <a class="nav-link" href="/Web/Contactanos/contactanos.html"><span>Contacto</span></a>
+                        <a class="nav-link " href="/Web/Contactanos/contactanos.html"><span>Contacto</span></a>
                       </li>
                       <!-- <li class="nav-item dropdown menu__item"  >
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -57,88 +56,41 @@
                 </div>                
             </nav>            
         </div>
-     </header>
+    </header>
 
-     <div class="offset-1 mt-3">
-       <h1>Crear Nueva Cuenta Cliente</h1>
-     </div>
+    <div class="container-fluid">
 
-      <main class="row offset-2 col-8 fs-4 mt-5">
+        <div class="row mt-5 mb-5">
+            <h1 class="text-center">Carrito</h1>
+        </div>
 
-        <form action="" class="form" id="form-contact">
 
-          <div class="mb-3">
-            <h2 class="border-bottom">Informacion Personal</h2>
-          </div>
+        <div class="row offset-1 col-sm-10">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item list-group-item-info"> Sin Articulos en tu carrito</li>
+            </ol>
+        </div>
 
-          <div class="form-group mb-2">
-            <label for="name">Nombres:</label>
-            <input type="text" class="form-control fs-4" id="name" placeholder="Juanito Connor">
-            <small id="nameHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="form-group mb-2">
-            <label for="lastName">Apellidos:</label>
-            <input type="text" class="form-control fs-4" id="lastName" placeholder="Connor">
-            <small id="lnameHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="form-group mb-2">
-            <label for="rut">Rut:</label>
-            <input type="text" class="form-control fs-4" id="rut" placeholder="12345678-k">
-            <small id="rutHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="mt-5 mb-3">
-            <h2 class="border-bottom">Informacion de Login</h2>
-          </div>
 
-          <div class="form-group mb-2">
-            <label for="mail">E-mail:</label>
-            <input type="text" class="form-control fs-4" id="mail" placeholder="JuanitoConnor@Skynet.com">
-            <small id="mailHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="form-group mb-2">
-            <label for="password">Contraseña:</label>
-            <input type="password" class="form-control fs-4" id="password" placeholder="******">
-            <small id="passwordHelp" class=" form-text text-danger"> </small>
-          </div>
 
-          <div class="form-group mb-2">
-            <label for="passwordConfirm">Confirmar la Contraseña:</label>
-            <input type="password" class="form-control fs-4" id="password" placeholder="******">
-            <small id="passwordConfirmHelp" class=" form-text text-danger"> </small>
-          </div>
+        <div class="row mt-5 mb-5">
+            <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+            <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+          
+            <div class="text-center mt-3">
+              <input type="email" name="email" id="email" placeholder="correo electrónico"><button type="button" class="btn-dark">Suscribir</button>
+            </div>            
+        </div>
 
-          <div class="">
-            <button class="btn btn-primary btn-block mt-4 fs-3 col-2" type="submit">Enviar</button>
-            <small id="finalHelp" class="form-text text-danger"> </small>
-          </div>
-
-        </form>
-      
-      </main>
-      
-
-      <div class="row mt-5 mb-5">
-        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
-        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
-      
-        <div class="text-center mt-3">
-          <input type="email" name="email" id="email" placeholder="correo electrónico"><button type="button" class="btn-dark">Suscribir</button>
-        </div>            
-      </div>
+        <footer class="row col mt-5 p-5 bg-dark text-white text-left">      
   
-      <footer class="row col mt-5 p-5 bg-dark text-white text-left">      
-    
     <div class="col-sm-6 col-md-4 fs-4 ">   
       <h3 class="border-bottom"><span class="footer_titles">Sobre Nosotros</span></h3>     
       <a href="/historia.html"><p>Historia</p></a>        
       <a href="/nuestras_tiendas.html"><p>Nuestras Tiendas</p></a>
       <a href="/Web/Productos/productosYservicios.html"><p>Productos & Servicios</p></a>
     </div>
-
+  
     <div class="col-sm-6 col-md-4 fs-4 ">   
       <h3 class="border-bottom"><span class="footer_titles">Servicio Cliente</span></h3>     
       <p><a href="/preguntas_frecuentes.html">Preguntas Frecuentes </a> </p>
@@ -146,7 +98,7 @@
       <a href="/metodos_envio.html"><p>Metodos de Envío</p></a>    
       <a href="/seguimiento_envio.html"><p>Seguimiento de Envio</p></a>    
     </div>
-
+  
     <div class="col-sm-6 col-md-4 fs-4 ">   
       <h3 class="border-bottom mb-3"><span class="footer_titles"> Nuestras Redes Sociales</span></h3>     
       
@@ -157,21 +109,22 @@
       <i class="fab fa-instagram col-12 mb-4" style="color: #c936ab;"><br><span class="text-white" ><small><a href="https://www.instagram.com/"> master_bike_</a></small></span></i>     
               
     </div>
-
+  
     <div class="mt-5  offset-2 col-8 ">
       <h3 class="col-sm-12 ">Horario de atención: <br>
         <small class="col col-sm-4 " style="font-size: 1.1rem;"> Lunes a Viernes de 10:00 a 20:00 hrs.
           | Sábados de 10:00 a 16:00 hrs. <br> <i class="fas fa-phone col-sm-4 "> 998477322</i></small>                   
       </h3>
      </div>
-      </footer>
+        </footer>
+  
     </div>
-
-      <!-- script de bootstrap -->
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-      <!-- Fin script de bootstrap -->
-
-  </body>
+  
+        <!-- script de bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+        <!-- Fin script de bootstrap -->
+  
+    </body>
 </html>
