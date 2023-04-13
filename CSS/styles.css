@@ -98,3 +98,21 @@ div.p_frecuentes h3{
 .fondo_productos{
     background-color: bisque;
 }
+div p.parrafo_index{
+    margin: 2rem;
+    text-shadow: 2px 2px 3px white,-2px -2px 3px rgb(252, 5, 5);
+    position: absolute;
+    font-size: 2.5rem;
+    color: gold;
+    z-index: 2;
+}
+div p.parrafo_index span{
+    color: rgb(0, 255, 179);
+}
+div p.parrafo_index span:hover{
+    font-size: 3rem;
+    color: rgb(90, 224, 12);
+    text-shadow: 3px 3px 5px rgb(255, 0, 0),-2px -2px 5px rgb(252, 5, 5);
+    transition: 1.3s;
+
+}
