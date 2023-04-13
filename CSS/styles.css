@@ -43,17 +43,15 @@ text-align: justify;
 }
 .main_productos1{
     text-align: justify;
-    font-family: roboto;
-    
+    font-family: roboto;    
     color: gold;
     background-color: black;
     
 }
 .main_productos2{
     text-align: justify;
-    font-family: roboto;
-    
-    color: black;
+    font-family: roboto;    
+    color: gold;
     background-color: gold;
     
 }
