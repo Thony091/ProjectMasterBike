@@ -4,7 +4,8 @@ body{
 nav{
     font-family: Roboto;
     font-weight:bold ;
-    background: linear-gradient(to right,rgb(0, 155, 202),rgb(223, 145, 2),red );
+    background: linear-gradient(to right,rgb(133, 212, 236),rgb(223, 145, 2),rgb(133, 212, 236) );
+  
 }
 nav a span{
     color: rgb(241, 231, 86);
@@ -23,8 +24,8 @@ nav a span{
 
 div a.active span{
     font-size: 1.9rem;
-    color: rgb(241, 231, 86);
-    text-shadow: 1px 1px 1px white;
+    color: rgb(89, 135, 234);
+    text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
 div.principal{
     background-color: black;
@@ -122,3 +123,17 @@ div p.parrafo_index span:hover{
     
 }
 
+div.producto_img img{
+    max-height: 240px;
+    max-width: 240px;
+}
+
+div.card2{
+    min-height: 640px;
+    max-width: 238px;
+}
+div.card2 a{
+    margin-top: .3rem;
+    position: absolute;
+    bottom: 1rem;
+}
