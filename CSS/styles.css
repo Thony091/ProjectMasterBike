@@ -137,3 +137,15 @@ div.card2 a{
     position: absolute;
     bottom: 1rem;
 }
+
+footer div i a{
+    font-family: roboto;
+    margin: 10px;
+}
+.align{    
+    position: absolute;
+    right: 5rem;
+}
+nav div i{
+    font-size: 2rem;
+}
