@@ -1,15 +1,15 @@
 //Validacion de Campos con JQuery
 $(document).ready( function () {    
-    $("#registrar").click(function(){
+    $("#registrar").on("click",function(){
+
         const inputName = $("#name").val().trim();
         const inputLastName = $("#lastName").val().trim();
         const inputRut = $("#rut").val().trim();
-        const inputEmail = $("#email").val().trim();
+        const inputMail = $("#mail").val().trim();
         const inputPassword = $("#password").val().trim();
         const inputPasswordConfirm = $("#passwordConfirm").val().trim();
         const nombreRegex= /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 
         if(inputName.length == 0){
             $("#nameHelp").text("El nombre no puede quedar vacio");
@@ -44,7 +44,7 @@ $(document).ready( function () {
             $("#rutHelp").text(" ");
         }
 
-        if(!emailRegex.test(inputEmail)){
+        if(!emailRegex.test(inputMail)){
             $("#mailHelp").text("Ingrese un correo valido.")
             return false
         }else{
@@ -66,9 +66,10 @@ $(document).ready( function () {
             return false
         }else{
             $("#passwordConfirmHelp").text(" ");
-
+            alert("Registro Exitoso")
         }
 
+        /*
         if (inputName.length == 0 || 
             inputLastName.length == 0 || 
             inputEmail.length == 0 || 
@@ -77,8 +78,7 @@ $(document).ready( function () {
             $("#finalHelp").text("Debe llenar todos los campos");
             return false
         } 
-        
+        */
 
     })
-
 });

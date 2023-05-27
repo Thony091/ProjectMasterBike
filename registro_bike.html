@@ -172,14 +172,17 @@
 
       </div>
 
-        <div class="row mt-1 mb-5">
-          <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
-          <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+      <form id="formSuscribir" class="row mt-5 mb-5">
+        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
         
-          <div class="text-center mt-3">
-            <input type="email" name="email" id="email" placeholder="correo electrónico"><button type="button" class="btn-dark">Suscribir</button>
-          </div>            
-      </div>
+        <div class="text-center mt-3">
+          <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+          <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+          <small id="suscribirHelp" class="form-text text-danger"> </small>
+          <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+        </div>            
+      </form>
     
       <footer class="row col mt-5 p-5 bg-dark text-white text-left">      
       
@@ -219,9 +222,10 @@
 
     </div>
 
-        <!-- script de bootstrap -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-        <!-- Fin script de bootstrap -->
+    <!-- script de bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- Fin script de bootstrap -->
+    <script src="/JS/validacionSuscribir.js"></script>
 
-    </body>
+  </body>
 </html>
