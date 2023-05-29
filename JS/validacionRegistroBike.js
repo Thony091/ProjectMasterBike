@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function(){
         let nombreRegex = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
         let fechaRegex =  /^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/
         let boletaRegex = /^[0-9]+$/
-
+      
 
          //* Validando nombre      
         if(nombreValue.length == 0){
@@ -100,19 +100,19 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         
 
-        if(marcaValue == 0){
+        if(marcaValue == null){
             document.querySelector("#marcaHelp").innerHTML = "Debe elegir una de las opciones.";
         }else{
             document.querySelector("#marcaHelp").innerHTML = " ";
         }
 
-        if(comunaValue == 0){
+        if(comunaValue == null){
             document.querySelector("#comunaHelp").innerHTML = "Debe elegir una de las opciones.";
         }else{
             document.querySelector("#comunaHelp").innerHTML = " ";
         }
 
-        if(regionValue == 0){
+        if(regionValue == null){
             document.querySelector("#regionHelp").innerHTML = "Debe elegir una de las opciones.";
         }else{
             document.querySelector("#regionHelp").innerHTML = " ";
@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function(){
         console.log("Aqui llegue");
         if (textoValue.length == 0 || emailValue.length == 0 || nombreValue.length <2 ||
             fechaCompraValue.length == 0 || boletaValue.length == 0 || nChasisValue.length == 0
-            || rutValue.length == 0 || marcaValue == 0 || comunaValue == 0 || 
-            regionValue == 0){
+            || rutValue.length == 0 || marcaValue == null || comunaValue == null|| 
+            regionValue == null){
            
             document.querySelector("#finalHelp").innerHTML = "Debe llenar todos los campos correctamente.";
             return false;
@@ -143,3 +143,12 @@ document.addEventListener("DOMContentLoaded", function(){
     })
 
 })
+
+
+function validarSelect() {
+    let select = document.getElementById("comuna");
+    if(select.value == '') {
+        alert("Selecciona una opcion");
+        return false;
+    }
+}
