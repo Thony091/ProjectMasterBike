@@ -1,5 +1,5 @@
 
-//Validacion de Campos con Javascript
+//Validacion de Campos con JavaScript
 
 document.addEventListener("DOMContentLoaded", function(){
     //*Obtener el formulario y sus campos
@@ -14,8 +14,9 @@ document.addEventListener("DOMContentLoaded", function(){
         let emailValue = mail.value;
         let textoValue = texto.value;
         let asuntoValue = asunto.value;
+        //Expresión Regular : Para seguir el patron de un correo
         let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        //Expresión Regular Nombres y Apellidos (excluye números)
+        //Expresión Regular : Nombres y Apellidos (excluye números)
         let nombreRegex= /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]+$/;
          
         //* Validando nombre      
@@ -34,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(){
            document.querySelector("#nameHelp").innerHTML = " ";
         }
 
-        //* tiene que retornar true or false        
+ 
         if(emailValue.length == 0){
             document.querySelector("#mailHelp").innerHTML = "El campo no puede estar vacio";
             

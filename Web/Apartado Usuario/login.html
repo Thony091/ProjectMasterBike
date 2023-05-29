@@ -66,6 +66,8 @@
             </header>
 
             <main class="row">
+              <form action="" id="form-login">
+
                 <div class="contenedor offset-3 col-6">
                     <div class="text-center mt-4 mb-3">
                         <i class="far fa-user" style="color: #0e65fb; font-size: 5rem;"></i>                        
@@ -78,19 +80,25 @@
                     <div class="offset-3 col-6 fs-4 mt-4">
                         <label for="password">Contraseña:</label>
                         <input type="password" class="form-control fs-3" id="password" placeholder="contraseña">
-                         <small id="passwordHelp" class=" form-text text-danger"> </small>
+                        <small id="passwordHelp" class=" form-text text-danger"> </small>
                     </div>
+
                     <div class="offset-3 col-6 fs-4 mt-4">
-                        <a href="/ayuda_contrasenia.html">¿Olvidó su contraseña?</a>
+                          <a href="/ayuda_contrasenia.html">¿Olvidó su contraseña?</a>
                     </div>
                     <div class="offset-3 col-6 fs-4 mt-4">                        
-                        <a href="/Web/Apartado Usuario/PrincipalUsuario.html"><button type="button" class="btn btn-primary col-12 fs-3 mb-3">Iniciar sesión</button></a>                        
+                      <a href="/Web/Apartado Usuario/PrincipalUsuario.html">
+                        <button type="submit" id="boton" class="btn btn-primary col-12 fs-3 mb-3">Iniciar sesión</button>
+                      </a>         
+                        <small id="finalHelp" class=" form-text text-danger"> </small>
                     </div>                    
+
                     <div class="offset-3 col-6 fs-4 mt-4 mb-4"> 
                         <p>¿No tiene una cuenta?<span><a href="/Web/Apartado Usuario/registro.html"> Registrarse aquí</a> </span> </p>
                     </div>                    
                     
                 </div>
+              </form>
             </main>
 
             <footer class="row col mt-5 p-5 bg-dark text-white text-left">      
@@ -98,14 +106,14 @@
               <div class="col-sm-6 col-md-4 fs-4 ">   
                 <h3 class="border-bottom"><span class="footer_titles">Sobre nosotros</span></h3>     
                 <a href="/historia.html"><p>Historia</p></a>        
-                <a href="#"><p>Nuestra Tienda</p></a>
+                <a href="/nuestras_tiendas.html"><p>Nuestras Tiendas</p></a>
                 <a href="/Web/Productos/productosYservicios.html"><p>Productos y servicios</p></a>
               </div>
         
               <div class="col-sm-6 col-md-4 fs-4 ">   
                 <h3 class="border-bottom"><span class="footer_titles">Servicio al cliente</span></h3>     
                 <p><a href="/preguntas_frecuentes.html">Preguntas frecuentes </a> </p>
-                <a href="#"><p>Registra tu bicicleta</p></a>    
+                <a href="/registro_bike.html"><p>Registra tu bicicleta</p></a>      
                 <a href="/metodos_envio.html"><p>Metodos de envío</p></a>    
                 <a href="/seguimiento_envio.html"><p>Seguimiento de envío</p></a>    
               </div>
@@ -136,5 +144,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
         <!-- Fin script de bootstrap -->
         <script src="/JS/validacionSuscribir.js"></script>
+        <script src="/JS/validacionLogin.js"></script>
     </body>
 </html>
