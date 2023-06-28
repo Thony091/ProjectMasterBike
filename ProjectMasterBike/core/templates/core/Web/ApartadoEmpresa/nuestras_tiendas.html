@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+
+      <main class="row ">
+        <section class="m-4 col-11">
+          <h1> <strong> Nuestras tiendas</strong></h1>
+            <p class="fs-4">Infórmate aquí sobre las direcciones, teléfonos y horarios de atención de todas nuestras tiendas MasterBike Store a lo largo de Chile.</p>
+        </section>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Providencia - Masterbike</h4>
+          <h4>Región Metropolitana de Santiago</h4>
+          <p>El Tirao 555, Providencia</p>
+          <p>Teléfono: 55555555 - 55555555</p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+        
+        <div class="offset-1 col-12 mb-4">
+          <h4>VITACURA - Masterbike</h4>
+          <h4>Región Metropolitana de Santiago</h4>
+          <p>Padre Hurtado Norte #5555, vitacura.</p>
+          <p>Teléfono: +569 55555555 </p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Quilicura Mall - Masterbike</h4>
+          <h4>Región Metropolitana de Santiago</h4>
+          <p>Av. Eduardo Frei Montalva 5555 </p>
+          <p>Teléfono: 55555555 - 55555555</p>
+          <p>
+            Horario: Lunes a domingo de: 09:00 a 17:00 hrs 
+          </p>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>La Florida - Masterbike</h4>
+          <h4>Región Metropolitana de Santiago</h4>
+          <p>Av. La Florida 2382 </p>
+          <p>Teléfono: 55555555 - 55555555</p>
+          <p>
+            Horario: Lunes a domingo de: 10:00 a 17:00 hrs. 
+          </p>
+        </div>
+
+        <div class="row col-12 mt-5 mb-3 bg-dark">
+          <h2 class="fs-1 text-center text-light">Tiendas en Regiones</h2>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Arica - Masterbike</h4>
+          <h4>Arica y Parinacota</h4>
+          <p>Avda. Cabra Cerro 666 </p>
+          <p>Teléfono: +569 55555555 - 33333333</p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Serena - Masterbike Store</h4>
+          <h4>Coquimbo</h4>
+          <p>Bernardo Ohiggins 1362</p>
+          <p>Teléfono: 55555555 - 55555555</p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Viña del Mar - Masterbike</h4>
+          <h4>Valparaíso</h4>
+          <p>Calle Zorzaida 555 </p>
+          <p>Teléfono: 55555555 - 55555555</p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Talca - Masterbike</h4>
+          <h4>Maule</h4>
+          <p>Calle La paz 435</p>
+          <p>Teléfono: +5695555555 </p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+
+        <div class="offset-1 col-12 mb-4">
+          <h4>Concepción - Masterbike</h4>
+          <h4>Biobío</h4>
+          <p>Tucapel #345 </p>
+          <p>Teléfono: +5695555555 </p>
+          <p>
+           Horario: Lunes a viernes de 10:00 a 17:00 hrs. Sábado de 10:00 a 14:00 hrs.
+          </p>
+        </div>
+
+      </main>
+      
+
+      <form id="formSuscribir" class="row mt-5 mb-5">
+        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+        
+        <div class="text-center mt-3">
+          <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+          <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+          <small id="suscribirHelp" class="form-text text-danger"> </small>
+          <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+        </div>            
+      </form>
+    
+  {% endblock main %}

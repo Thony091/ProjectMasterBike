@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+      <main class="row">
+        <div class="offset-1 col-12 mt-5 mb-2">
+          <h1>Mi Cuenta</h1>
+        </div>
+
+        <aside class="col-sm-2 bg-light-subtle m-4">
+          <div>
+            <p><strong>Mi cuenta</strong></p>
+            <a href="{% url 'pedidos' %}" style="text-decoration: none
+            ;"><p>Mis Pedidos</p></a>
+            <a href="{% url 'index' %}" style="text-decoration: none
+            ;"><p>Salir</p></a>
+          </div>
+        </aside>
+
+        <div class="col-sm-8 m-4">
+
+          <div>
+            <p class="border-bottom fs-2">Informacion de la Cuenta</p>            
+          </div>
+
+          <div>
+            <p><strong>Informacion de contacto</strong></p>
+            <span id="user">Nomre de Usuario</span><br>
+            <span id="email">correo_electronico</span><br>
+            <a href="#" style="text-decoration: none;">Editar</a>
+          </div>
+
+          <div class="mt-4">
+            <p class="border-bottom fs-2">Informacion de la Cuenta</p>            
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="fs-5"><strong> Direccion de facturacion</strong></p>
+              <p>No ha establecido una direccion.</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="fs-5"><strong> Direccion de envio</strong></pcla>
+              <p>No ha establecido una direccion.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </main>
+
+      <div class="row mt-5 mb-5">
+      <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+      <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+    
+      <div class="text-center mt-3">
+        <input type="email" name="email" id="email" placeholder="correo electrónico"><button type="button" class="btn-dark">Suscribir</button>
+      </div>            
+      </div>
+
+      {% endblock main %}

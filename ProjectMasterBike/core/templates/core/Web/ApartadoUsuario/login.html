@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+  {% block main %}
+    <main class="row">
+      <form action="" id="form-login">
+        <div class="contenedor offset-3 col-6">
+            <div class="text-center mt-4 mb-3">
+                <i class="far fa-user" style="color: #0e65fb; font-size: 5rem;"></i>                        
+            </div>
+            <div class="offset-3 col-6 fs-4">
+                <label for="user">Nombre usuario:</label>
+                <input type="text" class="form-control fs-3" id="user" placeholder="usuario">
+                 <small id="userHelp" class=" form-text text-danger"> </small>
+            </div>
+            <div class="offset-3 col-6 fs-4 mt-4">
+                <label for="password">Contraseña:</label>
+                <input type="password" class="form-control fs-3" id="password" placeholder="contraseña">
+                <small id="passwordHelp" class=" form-text text-danger"> </small>
+            </div>
+            <div class="offset-3 col-6 fs-4 mt-4">
+                  <a href="{% url 'ayuda_contrasenia' %}">¿Olvidó su contraseña?</a>
+            </div>
+            <div class="offset-3 col-6 fs-4 mt-4">                        
+              <a href="{% url 'principalUsuario' %}">
+                <button type="submit" id="boton" class="btn btn-primary col-12 fs-3 mb-3">Iniciar sesión</button>
+              </a>         
+                <small id="finalHelp" class=" form-text text-danger"> </small>
+            </div>                    
+            <div class="offset-3 col-6 fs-4 mt-4 mb-4"> 
+                <p>¿No tiene una cuenta?<span><a href="{% url 'registro_usuario' %}"> Registrarse aquí</a> </span> </p>
+            </div>                    
+            
+        </div>
+      </form>
+    </main>
+ {% endblock main %}

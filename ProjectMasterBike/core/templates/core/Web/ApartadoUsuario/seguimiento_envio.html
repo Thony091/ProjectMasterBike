@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+      <main class="row col-12">
+          <div class="row offset-1 col-10">
+
+            <div class="row mt-5 mb-5">
+              <h2>Seguimientos de pedidos</h2>
+              <p>Si estás interesado en hacer seguimiento a tus pedidos, puedes usar la siguiente herramienta. <br> 
+              Puedes usar tu número de pedido o también el número de seguimiento.
+              </p>
+            </div>
+          
+            <div class="row mt-5 mb-5">
+              <p class="text-center mt-5"><strong>Ingresa tu número de pedido o número de seguimiento</strong></p>
+              <div class="row offset-2 col-8">
+                <input type="text" name="consulta" id="consulta"><br>
+                <button type="submit" class="btn btn-primary mt-3 offset-4 col-4">Consultar</button>
+              </div>
+            </div>
+
+          </div>
+      </main> 
+  
+      <form id="formSuscribir" class="row mt-5 mb-5">
+        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+        
+        <div class="text-center mt-3">
+          <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+          <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+          <small id="suscribirHelp" class="form-text text-danger"> </small>
+          <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+        </div>            
+      </form>
+    
+    {% endblock main %}

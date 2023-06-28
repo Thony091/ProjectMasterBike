@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head %}
+<title>MasterBike</title>
+{% endblock %}
+  
+  {% block main %}
+<div class="row">
+  <h1 class="text-center">Nuestra Historia</h1>
+  <div class="row">
+                      
+    <p class="col-5 text-center p-5 offset-1"><b>Somos una empresa creada en el año 2020 enfocada en satisfacer las necesidades de los ciclistas. Todo partió en el patio de uno de nuestros amigos como un pequeño taller durante la pandema, la cual nos gatillo a lo que actualmente somos, un taller establecido con el cual Buscamos entregar un servicio honesto y de calidad, en un tiempo justo.
+                        Contamos con taller a la vista para ofrecer una atención transparente de acuerdo a nuestros estándares de servicio. Realizamos todo tipo de reparaciones y proyectos especiales, armamos y reparamos bicicletas, traemos productos junto con repuestos a pedido y armamos bicicletas personalizadas.</b></p>
+    <img src="Img/taller_viejo.jpeg" class="taller_viejo offset-1"  alt="">
+                    
+  </div>
+
+  <div class="row mt-4">
+    <img src="Img/taller_nuevo.webp" class="taller_viejo offset-2" alt="">
+
+    <p class=" col-5 text-center p-5">realizamos mantenciones completas, contamos con el servicio de retiro y entrega a domicilio. Mantenemos constante comunicación con el cliente. Trabajamos por satisfacer las necesidades de nuestros clientes, entregando un servicio de excelencia,
+                      que esté por sobre sus expectativas.</p>
+  </div>
+  <div class="row mt-5">
+    <img class=" offset-1 col-10" src="Img/original_Golden_hour_biking.jpg" alt="">
+  </div>
+</div>
+
+            
+  <form id="formSuscribir" class="row mt-5 mb-5">
+    <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+    <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+              
+    <div class="text-center mt-3">
+      <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+      <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+      <small id="suscribirHelp" class="form-text text-danger"> </small>
+      <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+    </div>            
+  </form>
+        
+{% endblock main %}

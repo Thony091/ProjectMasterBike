@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+  {% block main %}
+        <main class="row col-12">
+              <div class="row mb-3">
+                <h1 class="m-3 mt-5 mb-3">Métodos de despacho</h1>
+              </div>
+
+              <div class="row offset-3 col-8 met_desp_justi">
+                <p>En MasterBike contamos con diferentes métodos de despacho para poder enviar nuestros productos a todo Chile continental. En todos ellos podrás hacer seguimiento de tu pedido en el <a href="seguimiento_envio.html"> siguiente link</a>. Si tienes dudas sobre tu compra o el despacho de esta, puedes consultar en nuestro Call Center, Formulario de Contacto o el Chat. <br>
+                Actualmente podrás seleccionar entre los siguientes Métodos de Despacho:</p>
+
+                <h2 class="fs-1"><strong> Para Bicicletas & Accesorios</strong></h2>
+
+                <p>Todas nuestras bicicletas van armadas y listas para ser usadas desde el momento en que llegan a destino. Para lograr esto, nuestro equipo la dejará armada y ajustada, y luego la volverá a embalar para su posterior despacho. </p>
+
+                <h2>Despacho MasterBike:</h2>
+
+                <p>Solo disponible en la Región Metropolitana*(Radio urbano de RM).  El tiempo de espera aproximado para recepción y armado de tu compra es de 2 a 3 días hábiles. <br><br>
+
+                <strong> Valor</strong>: <small> Dependerá del tamaño y peso del producto, como también de la región y comuna de destino.</small></p>
+
+                <h2>DESPACHO REGIONES Y FUERA DEL RADIO URBANO REGIÓN METROPOLITANA : </h2>
+
+                <p>El tiempo de espera aproximado para la recepción de tu compra es de 5 A 9 días hábiles. (en Zonas extremas puede ser un poco más). <br><br>
+
+                <strong> Valor</strong>: <small> Dependerá del tamaño y peso del producto, como también de la región y comuna de destino.</small></p>
+
+                <h2>DESPACHO PREMIUM:</h2>
+
+                <p>Solo disponible en la Región Metropolitana*.  El tiempo de espera aproximado para recepción y armado de tu compra es de 3 a 5 días hábiles. <br> <br>
+
+                Sabemos que quieres dejar las escusas y ponerte a entrenar cuanto antes. Por eso hemos creado el Despacho Premium, exclusivo para la Región Metropilitana. Por sólo $24.990 adicionales, despacharemos tu nuevo equipo Muvo al lugar que nos indiques, con un técnico que la armará y te capacitará sobre cómo usarla. <br> <br>
+                  
+                <strong> Valor</strong>: <small> $29.990</small></p>
+
+                <h2>DESPACHO EXPRESS:</h2>
+
+                <p>Solo disponibible en la Región Metropolitana*. El tiempo de espera para la recepción de producto es 1 día hábil. <br><br>
+
+                Una vez recibido el producto, deberás coordinar el armado en caso de ser necesario. (Debes ubicar el producto en el sitio que será armado) <br><br>
+                  
+                <strong> Valor</strong>: <small> $9.990</small></p>
+
+                <h2>DESPACHO REGIONES: </h2>
+
+                <p >El tiempo de espera aproximado para la recepción de tu compra es de 9 días hábiles <br><br>
+
+                 <strong>Valor</strong>: <small> Dependerá del tamaño y peso del producto, como también de la región y comuna de destino.</small></p>
+
+                <p class="mt-5"><strong>*Comunas con Despacho Premium y Despacho Express:</strong><br></p>
+
+               <p> Puente Alto - San Bernardo – Cerrillos - Cerro Navia – Colina - Conchalí - El Bosque - Estación Central – Huechuraba – Independencia - La Cisterna - La Granja - La Florida - La Pintana - La Reina - Las Condes - Lo Barnechea - Lo Espejo - Lo Prado – Macul – Maipú – Ñuñoa - Pedro Aguirre Cerda – Peñalolén – Providencia – Pudahuel – Quilicura - Quinta Normal – Recoleta – Renca - San Miguel - San Joaquín - San Ramón – Santiago – Vitacura.
+              </p>
+              </div> 
+        </main> 
+        
+        <form id="formSuscribir" class="row mt-5 mb-5">
+          <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+          <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+          
+          <div class="text-center mt-3">
+            <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+            <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+            <small id="suscribirHelp" class="form-text text-danger"> </small>
+            <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+          </div>            
+        </form>
+    
+  {% endblock main %}

@@ -6,7 +6,7 @@ from rest_framework.parsers import JSONParser
 from django.views.decorators.csrf import csrf_exempt
 from core.models import Producto
 from .serializers import ProductoSerializer
-
+# libreria para encriptar las contraseñas django.contrib.auth.hashers
 # Create your views here.
 
 @csrf_exempt

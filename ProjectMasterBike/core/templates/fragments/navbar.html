@@ -1,0 +1,45 @@
+{% load static %}
+<div class="row col">
+    <nav class=" navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="{% url 'index' %}">
+            <img src="/Img/favicon-32x32.png" alt="">
+          </a>
+          <div class="align">
+            <a href="{% url 'carritoCompras' %}"> 
+              <i class="fas fa-cart-shopping"></i> 
+            </a>                
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item menu__item">
+                <a class="nav-link active " aria-current="page" href="{% url 'index' %}"><span> Inicio</span></a>
+              </li>
+              <li class="nav-item menu__item">
+                <a class="nav-link" href="{% url 'productosYservicios' %}"><span>Productos y servicios</span></a>
+              </li>
+              <li class="nav-item menu__item">
+                <a class="nav-link" href="{% url 'login' %}"><span>Login</span></a>
+              </li>
+              <li class="nav-item menu__item">
+                <a class="nav-link" href="{% url 'contactanos' %}"><span>Contacto</span></a>
+              </li>
+              <!-- <li class="nav-item dropdown menu__item"  >
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <span>Login</span>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#"><span> 1</span></a></li>
+                  <li><a class="dropdown-item" href="#"><span> 2 </span></a></li>
+                  <li><a class="dropdown-item" href="#"><span> 3</span></a></li> -->
+                  
+                </ul>
+              </li>                      
+            </ul>
+          </div>
+        </div>                
+    </nav>            
+</div>

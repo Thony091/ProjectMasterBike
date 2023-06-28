@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+      <div class="row">
+      
+        <main class="row mt-3 mb-5 " >
+          <div class="mt-5 contacto">
+            <h2 class="offset-1 col-10 fs-1"><strong> Enviar Solicitud: </strong></h2>
+
+            <form id="form-contact"  class="offset-1 col-10 form mb-5">
+
+              <div class="form-group fs-3 mt-4">
+                  <label for="name">Nombre Completo:</label>
+                  <input type="text" class="form-control fs-4" id="name" placeholder="Juanito Connor">
+                  <small id="nameHelp" class=" form-text text-danger"> </small>
+              </div>
+    
+              <div class="form-group fs-3 mt-4">
+                <label for="email">Email: </label>
+                <input type="email" class="form-control fs-4" id="email" placeholder="jConnor@skynet.com">
+    
+                <small id="emailHelp" class=" form-text text-danger"> </small>
+              </div> 
+
+<!--
+
+              <div class="form-group fs-3 mt-4"> 
+                <label for="marca">Marca de Bicicleta</label>           
+              <select id="marca" class="form-select fs-3" aria-label="Default select example">
+                <option selected disabled value="">-</option>
+                <option value="1">Oxford</option>
+                <option value="2">Trek</option>
+                <option value="3">BMC</option>
+                <option value="4">Canyon</option>
+                <option value="5">Giant</option>
+                <option value="6">Scott</option>
+              </select>
+              <small id="marcaHelp" class="form-text text-danger"> </small>
+              </div>
+
+              -->
+    
+              <div class="form-group fs-3 mt-4">
+                <label for="fech_comp">Fecha de Compra</label>
+                <input type="text" class="form-control fs-4" id="fech_comp" placeholder="01-01-1990">
+                <small id=" fechaHelp" class=" form-text text-danger"> </small>
+              </div> 
+    
+              <div class="form-group fs-3 mt-4">
+                <label for="boleta">Número Boleta</label>
+                <input type="text" class="form-control fs-4" id="boleta" placeholder="xxx-xxxx">
+                <small id=" boletaHelp" class=" form-text text-danger"> </small>
+              </div> 
+    
+              <div class="form-group fs-3 mt-4">
+                <label for="nChasis">Numero de Chasis</label>
+                <input type="text" class="form-control fs-4" id="nChasis" placeholder="X123FC">
+                <small id="motorHelp" class=" form-text text-danger"> </small>
+              </div> 
+    
+              <div class="form-group fs-3 mt-4">
+                <label for="rut">Rut</label>
+                <input type="text" class="form-control fs-4" id="rut" placeholder="">
+                <small id="rutHelp" class=" form-text text-danger"> </small>
+              </div> 
+    
+              <div class="form-group fs-3 mt-4">
+                <label for="text-area">Descripcion:</label>
+                <textarea class="form-control fs-4" id="text-area" rows="4" placeholder="Ingrese los detalles de esta solicitud. Un integrante de nuestro personal de soporte responderá en breve."></textarea>
+                <small id="textHelp" class=" form-text text-danger"> </small>
+              </div>
+<!--
+              <div class="form-group fs-3 mt-4"> 
+                <label for="region">Region</label>           
+              <select id="region" class="form-select fs-3" aria-label="Default select example">
+                <option selected disabled value="">-</option>
+                <option value="1">Metropilitana de Santiago</option>
+                <option value="2">Arica y Parinacota</option>
+                <option value="3">Otros</option>             
+              </select>
+              <small id="regionHelp" class="form-text text-danger"> </small>
+              </div>
+            
+           
+
+              <div class="form-group fs-3 mt-4"> 
+                <label for="comuna">Comuna</label>           
+              <select id="comuna" class="form-select fs-3" aria-label="Default select example">
+                <option selected disabled value="">-</option>
+                <option value="1">La Pintana</option>
+                <option value="2">Puente Asalto</option>
+                <option value="3">Otros</option>             
+              </select>
+              <small id="comunaHelp" class="form-text text-danger"> </small>
+              </div>
+ -->
+    
+              <div class="d-grid gap-3 ">
+              <button id="agregar" class="btn btn-primary btn-block mt-4 fs-3 m-3" type="submit">Registrar</button>
+              <small id="finalHelp" class="form-text text-danger"> </small>
+              </div>
+
+            </form> 
+
+          </div>
+        </main> 
+
+      </div>
+
+      <form id="formSuscribir" class="row mt-5 mb-5">
+        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+        
+        <div class="text-center mt-3">
+          <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+          <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+          <small id="suscribirHelp" class="form-text text-danger"> </small>
+          <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+        </div>            
+      </form>
+    
+    {% endblock main %}

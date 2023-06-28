@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+  
+        <main class="row col-12">
+              <div class="row mt-4">
+                <h1 class="row m-4 mb-5">Contraseña Perdida</h1>
+                
+                <div class="offset-2 col-9">                
+                  <p class="met_desp_justi fs-5">¿Perdiste tu contraseña? Por favor, introduce tu nombre de usuario o correo electrónico. Recibirás un enlace para crear una contraseña nueva por correo electrónico. </p>
+
+                  <div class="row mt-5">
+                    <label for="restablecercontrasenia"><strong>Nombre de Usuario o contraseña*</strong></label>
+
+                    <input class="col-6" type="text" name="usuarioContrasenia" id="restablecercontrasenia" placeholder="Usuario o Contraseña">
+                    
+                    <div class=" mt-2">
+                    <button type="submit" class="btn btn-primary">Restablecer Contraseña</button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+        </main> 
+
+
+        <form id="formSuscribir" class="row mt-5 mb-5">
+          <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+          <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+          
+          <div class="text-center mt-3">
+            <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
+            <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
+            <small id="suscribirHelp" class="form-text text-danger"> </small>
+            <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
+          </div>            
+        </form>
+    
+  {% endblock main %}

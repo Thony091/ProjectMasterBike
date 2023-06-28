@@ -23,7 +23,7 @@ class Usuario(models.Model):
     apellidoUsuario = models.CharField(max_length = 70, verbose_name = 'Apellido del usuario')
     rutUsuario = models.IntegerField(verbose_name = 'Rut del usuario')
     emailUsuario = models.EmailField(max_length = 30, unique = True, verbose_name = 'Email del usuario')
-    contraseniaUsuario = models.CharField(max_length = 30, verbose_name = 'Contraseña del usuario' )
+    contraseniaUsuario = models.CharField(max_length = 30, verbose_name = 'Contraseña del usuario')
     direccionUsuario = models.CharField(max_length = 70, null = True, verbose_name='Dirección del usuario')
     comuna = models.ForeignKey(Comuna, on_delete = models.CASCADE)
 

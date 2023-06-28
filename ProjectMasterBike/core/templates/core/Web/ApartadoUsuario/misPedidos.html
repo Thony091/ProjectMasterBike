@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+        <main class="row">
+            <div class="offset-1 col-12 mt-5 mb-2">
+              <h1>Mis Pedidos</h1>
+            </div>
+    
+            <aside class="col-sm-2 bg-light-subtle m-4">
+              <div>
+                <a href="/Web/Apartado Usuario/PrincipalUsuario.html"><p>Mi cuenta</p></a>
+
+                <p> <strong> Mis Pedidos</strong></p>
+                <a href="/Web/Principal/index.html" style="text-decoration: none
+                ;"><p>Salir</p></a>
+              </div>
+            </aside>
+    
+            <div class="col-sm-8 m-4">
+                <ol class="list-group list-group-numbered">
+                    <li class="list-group-item list-group-item-info"> Sin Articulos en tu carrito</li>
+                </ol>
+            </div>
+    
+          </main>
+
+        <div class="row mt-5 mb-5">
+            <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
+            <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
+          
+            <div class="text-center mt-3">
+              <input type="email" name="email" id="email" placeholder="correo electrónico"><button type="button" class="btn-dark">Suscribir</button>
+            </div>            
+        </div>
+
+    {% endblock main %}
