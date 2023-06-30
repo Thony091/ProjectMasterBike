@@ -3,7 +3,7 @@
     <nav class=" navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'index' %}">
-            <img src="/Img/favicon-32x32.png" alt="">
+            <img src="{% static 'core/img/favicon-32x32.png'%} " alt="">
           </a>
           <div class="align">
             <a href="{% url 'carritoCompras' %}"> 
@@ -16,16 +16,16 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
               <li class="nav-item menu__item">
-                <a class="nav-link active " aria-current="page" href="{% url 'index' %}"><span> Inicio</span></a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}" aria-current="page" href="{% url 'index' %}"><span> Inicio</span></a>
               </li>
               <li class="nav-item menu__item">
-                <a class="nav-link" href="{% url 'productosYservicios' %}"><span>Productos y servicios</span></a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'productosYservicios' %}active{% endif %}" href="{% url 'productosYservicios' %}"><span>Productos y servicios</span></a>
               </li>
               <li class="nav-item menu__item">
-                <a class="nav-link" href="{% url 'login' %}"><span>Login</span></a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'login' %}"><span>Login</span></a>
               </li>
               <li class="nav-item menu__item">
-                <a class="nav-link" href="{% url 'contactanos' %}"><span>Contacto</span></a>
+                <a class="nav-link {% if request.resolver_match.url_name == 'contactanos' %}active{% endif %}" href="{% url 'contactanos' %}"><span>Contacto</span></a>
               </li>
               <!-- <li class="nav-item dropdown menu__item"  >
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
