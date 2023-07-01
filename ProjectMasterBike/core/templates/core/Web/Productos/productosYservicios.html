@@ -6,166 +6,80 @@
   {% endblock %}
   
     {% block main %}
-      <main class=" mt-5">        
+      <main class=" mt-5">
+        <div class="row mt-5 fondo_productos justify-content-around producto_img">
+          <div class="row  col-12 text-center mt-3">
+            <h2 style="font-weight: bold; text-shadow: 2px 2px 2px white;">Nuestros productos</h2>
+          </div> 
+          <div class="row col-2 col-lg-2">
+              <h1 class="my-4">Categorias</h1>
+              <div class="list-group">
+                {% for c in categorias %}
+                <a href="{%  url 'core:categorias' c.slug %}" class="list-group-item">{{c.nombreCategoria}}</a>
+                {% endfor %}
+              </div>
 
-          <div class="row mt-5 fondo_productos justify-content-around producto_img">
-            <div class="row  col-12 text-center mt-3">
-              <h2 style="font-weight: bold; text-shadow: 2px 2px 2px white;">Nuestros productos</h2>
-            </div>
-
-            
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/casco.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><strong>Casco bicicleta Rideland</strong></h5>
-                  <p class="card-text"> Casco de bicicleta Rideland para hombre y mujer, ligeros para andar en montañas o carretera.</p>
-                  <p> <strong> $ 25.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class=" col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/asiento.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><strong> Sillin Topmega</strong></h5>
-                  <p class="card-text">Sillin Topmega con Tecnologia de alto nivel, permitiendo que puedas estar mucho más tiempo cómodo realizando deporte de alta intensidad.</p>
-                  <p> <strong> $ 19.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/amortiguadores.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"><strong> Horquilla Rockshox</strong></h5>
-                  <p class="card-text">El Lyrik Select combina la cámara de aire DebonAir con el confiable amortiguador Charger RC que ofrece compresión a baja velocidad y control de amortiguación de rebote.</p>
-                  <p> <strong> $ 45.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/kit protector.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">  <strong> Set protección RODA</strong></h5>
-                  <p class="card-text">Protección, actitud y comodidad! Es lo que te entrega este Set de Protección RODA. Fue diseñado pensando en entregar máxima protección y confort en su uso, entregando un toque de estilo.</p>
-                  <p> <strong> $ 22.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/bici_de_3_palos.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"> <strong> Bicicleta Trek Madone</strong></h5>
-                  <p class="card-text">La Madone SL 6 ofrece un rendimiento aerodinámico avanzado y las sensaciones de nuestra bicicleta de competición definitiva.</p>
-                  <p> <strong> $ 390.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/frenosShimano.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"> <strong> Frenos disco Shimano M445 delantero</strong></h5>
-                  <p class="card-text">Asequible sistema de frenos de disco hidráulicos. Diseño aerodinámico de la palanca de freno.</p>
-                  <p> <strong> $ 30.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 15rem;">
-                <img src="/Img/guantes.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"> <strong> Guante Sixsixone Raji Glove</strong></h5>
-                  <p class="card-text">Es un guante liviano con una parte superior de malla de sarga elástica en el dorso de la mano y una palma de una sola capa con la parte superior de la palma para una protección sin ampollas, sin sacrificar la sensación de agarre.</p>
-                  <p> <strong> $ 18.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-
-            <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
-              <div class="card card2" style="width: 16rem;">
-                <img src="/Img/bicimontañera.jpeg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title"> <strong> Bicicleta MTB TREK MARLIN 5</strong></h5>
-                  <p class="card-text">La Marlin 5 es una bicicleta de uso diario apta para las aventuras cotidianas, dentro y fuera de los senderos.</p>
-                  <p> <strong> $ 650.000</strong></p>
-                  <a href="#" class="btn btn-primary">Ver producto</a>
-                </div>
-              </div>              
-            </div>
-          
+          </div >
+          <div class="row col-9 d-flex justify-content-between">
+              {% for item in productos %}
+              <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
+                <div class="card h-100" style="width: 15rem;">
+                  <a href="{% url 'core:detail' item.slug %}"><img src="{{item.imagen}}" class="card-img-top" alt="..."></a>
+                  <div class="card-body">
+                    <h5 class="card-title"><strong>{{item.nombreProducto}}</strong>
+                    </h5>
+                    <p class="card-text"></p>
+                    <p> <strong> $ {{item.precioProducto}}</strong></p>
+                  </div>
+                  <div class="card-footer">
+                    <a href="#" class="btn btn-primary">Ver producto</a>
+                  </div>
+                </div>              
+              </div>
+              {% endfor %}
           </div>
 
-          <div class="row  main_productos2 mt-4" style="background: url(/Img/bicicleta-de-mountain-mala.jpeg); opacity: 0.7;">
-            
-            <div class="row offset-1 col-10 text-center mt-4">
-              <h2 class="fs-1" style="font-weight: bold; text-shadow: 3px 3px 3px rgb(0, 0, 0);">Nuestros servicios</h2>
-            </div>
 
-            <div class="row offset-1 col-sm-7 m-4" >
-              <div class="card mb-3" style="max-width: 600px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="/Img/mantencion_bici.webp" class="img-fluid rounded-start " style="height: 100%;" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"><strong> Mantenimiento para tu flaca</strong></h5>
-                      <p class="card-text">Agenda una hora para la mantencion de tu flaca. <a href="{% url 'registro_bike' %}">Click aqui</a></p>
-                      <p class="card-text"><small class="text-muted">Previene imprevistos con una mantencion periodica</small></p>
-                    </div>
+
+        <div class="row  main_productos2 mt-4" style="background: url(core/img/bicicleta-de-mountain-mala.jpeg); opacity: 0.7;">          
+          <div class="row offset-1 col-10 text-center mt-4">
+            <h2 class="fs-1" style="font-weight: bold; text-shadow: 3px 3px 3px rgb(0, 0, 0);">Nuestros servicios</h2>
+          </div>
+          <div class="row offset-1 col-sm-7 m-4" >
+            <div class="card mb-3" style="max-width: 600px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="{% static 'core/img/mantencion_bici.webp' %}" class="img-fluid rounded-start " style="height: 100%;" alt="...">
+                </div>                
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"><strong> Mantenimiento para tu flaca</strong></h5>
+                    <p class="card-text">Agenda una hora para la mantencion de tu flaca. <a href="{% url 'core:registro_bike' %}">Click aqui</a></p>
+                    <p class="card-text"><small class="text-muted">Previene imprevistos con una mantencion periodica</small></p>
                   </div>
                 </div>
               </div>
             </div>
-
-            <div class="row col-sm-7 offset-5 mb-4">
-              <div class="card mb-3" style="max-width: 600px;">
-                <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="/img/descarga.jpg" class="img-fluid rounded-start" 
-                    style="height: 100%;" alt="...">
-                  </div>
-                  <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title"> <strong> Rescate Cletero</strong></h5>
-                      <p class="card-text">Si tienes una emergencia llamanos al número <strong> 998477322</strong></a></p>
-                      <p class="card-text"><small class="text-muted">Listos para cualquier emergencia.</small></p>
-                    </div>
+          </div>
+          <div class="row col-sm-7 offset-5 mb-4">
+            <div class="card mb-3" style="max-width: 600px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="{% static 'core/img/descarga.jpg' %}" class="img-fluid rounded-start" 
+                  style="height: 100%;" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title"> <strong> Rescate Cletero</strong></h5>
+                    <p class="card-text">Si tienes una emergencia llamanos al número <strong> 998477322</strong></a></p>
+                    <p class="card-text"><small class="text-muted">Listos para cualquier emergencia.</small></p>
                   </div>
                 </div>
               </div>
             </div>
-          </div> 
+          </div>
+        </div> 
+
       </main>
-
-
-      <form id="formSuscribir" class="row mt-5 mb-5">
-        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
-        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
-        
-        <div class="text-center mt-3">
-          <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
-          <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
-          <small id="suscribirHelp" class="form-text text-danger"> </small>
-          <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
-        </div>            
-      </form>
 
   {% endblock main %}

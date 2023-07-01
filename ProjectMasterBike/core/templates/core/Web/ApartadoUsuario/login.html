@@ -23,19 +23,23 @@
                 <small id="passwordHelp" class=" form-text text-danger"> </small>
             </div>
             <div class="offset-3 col-6 fs-4 mt-4">
-                  <a href="{% url 'ayuda_contrasenia' %}">¿Olvidó su contraseña?</a>
+                  <a href="{% url 'core:ayuda_contrasenia' %}">¿Olvidó su contraseña?</a>
             </div>
             <div class="offset-3 col-6 fs-4 mt-4">                        
-              <a href="{% url 'principalUsuario' %}">
+              <a href="{% url 'core:principalUsuario' %}">
                 <button type="submit" id="boton" class="btn btn-primary col-12 fs-3 mb-3">Iniciar sesión</button>
               </a>         
                 <small id="finalHelp" class=" form-text text-danger"> </small>
             </div>                    
             <div class="offset-3 col-6 fs-4 mt-4 mb-4"> 
-                <p>¿No tiene una cuenta?<span><a href="{% url 'registro_usuario' %}"> Registrarse aquí</a> </span> </p>
+                <p>¿No tiene una cuenta?<span><a href="{% url 'core:registro_usuario' %}"> Registrarse aquí</a> </span> </p>
             </div>                    
             
         </div>
       </form>
     </main>
  {% endblock main %}
+
+ {% block scripts %}
+ <script src="{% static 'core/js/validacionLogin.js'%}"></script>
+ {% endblock scripts %}

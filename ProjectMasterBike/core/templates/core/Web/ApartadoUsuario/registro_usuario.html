@@ -12,10 +12,13 @@
 
       <main class="row offset-2 col-8 fs-4 mt-5">
 
-        <form action="" class="form" id="form-register">
-
+        <form action="" class="form" id="form-register" method="POST">
           <div class="mb-3">
             <h2 class="border-bottom">Informacion Personal</h2>
+          </div>
+          {% csrf_token %}
+          <div class="form-group">
+          
           </div>
 
           <div class="form-group mb-2">
@@ -34,6 +37,24 @@
             <label for="rut">Rut:</label>
             <input type="text" class="form-control fs-4" id="rut" placeholder="12345678-k">
             <small id="rutHelp" class=" form-text text-danger"> </small>
+          </div>
+
+          <div class="form-group mb-2">
+            <label for="direccion">Dirección:</label>
+            <input type="text" class="form-control fs-4" id="direccion" placeholder="Calle Siempre viva 123">
+            <small id="direccionHelp" class=" form-text text-danger"> </small>
+          </div>
+
+
+          <div class="form-group mb-2">
+            <label class="col-5" for="comuna">Comuna:</label>
+            <select class="form-select fs-3" name="comuna" id="comuna">
+              <option value="0" selected>Elegir Comuna</option>
+              {% for com in comunas %}
+                <option value="{{ com.idComuna }}">{{ com.nombreComuna }}</option>
+              {% endfor %}
+            </select>
+            <small id="comunaHelp" class=" form-text text-danger"> </small>
           </div>
       
           <div class="mt-5 mb-3">
@@ -59,25 +80,16 @@
           </div>
 
           <div class="">
-            <button id="registrar" class="btn btn-primary btn-block mt-4 fs-3 col-2" type="submit">Registrar</button>
+            <input id="registrar" class="btn btn-primary btn-block mt-4 fs-3 col-2" type="submit" value="Enviar"></input>
+            <input id="limpiar" class="btn btn-primary btn-block mt-4 fs-3 col-2" type="reset" value="Limpiar"></input>
             <small id="finalHelp" class="form-text text-danger"> </small>
           </div>
           
-        </form>
-        
-      </main>
-      
-      
-      <form id="formSuscribir" class="row mt-5 mb-5">
-        <h2 class="text-center mb-3 mt-5"><strong> ¡NOVEDADES Y BENEFICIOS!</strong></h2>
-        <p class="text-center mt-3">Suscríbete ahora a nuestro newsletter y recibe en tu email ofertas exclusivas, promociones ¡y mucho más!</p>
-        
-        <div class="text-center mt-3">
-          <input type="email" name="email" id="emailSuscribir" placeholder="Correo electrónico">
-          <button id="suscribir" type="submit" class="btn-dark">Suscribir</button>
-          <small id="suscribirHelp" class="form-text text-danger"> </small>
-          <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
-        </div>            
-      </form>
-  
-      {% endblock main %}
+        </form>      
+      </main>      
+    {% endblock main %}
+
+    {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="{% static 'core/js/validacionesRegistroUsuario.js'%}"></script>
+    {% endblock scripts %}
