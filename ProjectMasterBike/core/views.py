@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Producto, Comuna, Categoria
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
@@ -145,6 +146,7 @@ def detail(request, slug):
         return render(request, template_name, context)
 
 def cart(request,slug):
+    template_name    = 'core/WEB/Productos/carritoCompras.html'
     product     = Producto.objects.get(slug=slug)
 
     initial     = {"items":[], "price": 0, "count": 0}
@@ -165,6 +167,6 @@ def mycart(request):
     sess             = request.session.get("data", {"items":[]})
     products         = Producto.objects.filter(activo=True, slug__in = sess["items"])
     categorias       = Categoria.objects.filter(activo=True)
-    total            = sess["price"]
+   
     context          = {"productos":products, "categorias":categorias}
     return render(request, template_name, context)

@@ -22,8 +22,9 @@
   </head>
   <body>
     <div class="container-fluid">
+      
+          {% include "fragments/navbar.html" %}
 
-            {% include "fragments/navbar.html" %}
 
             {% block main %}
             {% endblock main %}
@@ -39,6 +40,12 @@
                 <small id="suscribirHelp2" class="form-text text-success"> </small> <!-- Solo para ocupar con JQuery -->
               </div>            
             </form>
+            
+            <div style="position: fixed; right: 1rem;bottom: 1rem; border-radius: solid 3px black;">
+              <a href="{% url 'core:mycart' %}" class="btn btn-primary"> 
+                <i class="fas fa-cart-shopping" style="width: 2rem; ">{{request.session.data.count}}</i> 
+              </a>      
+            </div>
 
             {% include "fragments/footer.html" %}
         <!-- script de bootstrap -->

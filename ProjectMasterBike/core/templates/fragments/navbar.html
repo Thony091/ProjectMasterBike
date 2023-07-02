@@ -1,14 +1,15 @@
 {% load static %}
-<div class="row col">
+<div class="row col position-sticky top-0" style="border-bottom: solid 1px black;">
     <nav class=" navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="{% url 'core:index' %}">
             <img src="{% static 'core/img/favicon-32x32.png'%} " alt="">
           </a>
-          <div class="align">
-            <a href="{% url 'core:mycart' %}" class="btn btn-success"> 
-              <i class="fas fa-cart-shopping">{{request.session.data.count}}</i> 
-            </a>                
+          <div class="align ">          
+            {% if request.user.is_authenticated %}
+            <p class="text-black-50 mx-5 my-2 "> Bienvenido <span class="fw-bold text-capitalize"><a href="#">{{user.username}}</a></span>
+            <a href="/logout"><i class="fa-solid fa-arrow-right-from-bracket " style="margin-left: 2rem;"> </i></a>
+            {% endif %}
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -24,20 +25,17 @@
               <li class="nav-item menu__item">
                 <a class="nav-link {% if request.resolver_match.url_name == 'contactanos' %}active{% endif %}" href="{% url 'core:contactanos' %}"><span>Contacto</span></a>
               </li>
-              
-                    
-            </ul>            
-            <div>
-              {% if request.user.is_authenticated %}
-              <div class="d-flex justify-content-between align-items-center">
-             <p class="text-white-50 mx-3 my-2"> Bienvenido <span class="fw-bold text-capitalize">{{user.username}}</span>
-              <a href="/logout">Cerrar Sesion</a>
-              <a href="#">Perfil</a>
+
+              {% if request.user.is_authenticated %}           
               {% else %}
               <li class="nav-item menu__item">
                 <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'core:login' %}"><span>Login</span></a>
-              </li>
-              {% endif %}        
+              </li>            
+              {% endif %}    
+            </ul>            
+            <div>
+              
+                     
            </div>
             </div>
           </div>

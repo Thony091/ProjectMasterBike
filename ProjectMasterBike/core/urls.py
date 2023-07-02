@@ -18,7 +18,6 @@ urlpatterns = [
     
     path('seguimiento_envio', seguimiento_envio, name="seguimiento_envio"),
     path('contactanos', contactanos, name="contactanos"),
-    # path('carritoCompras', carritoCompras, name="carritoCompras"),
     path('productosYservicios', productos_servicios, name="productosYservicios"),
     path('servicios', servicios, name="servicios"),
 

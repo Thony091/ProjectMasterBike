@@ -11,7 +11,7 @@
           <h1 class="text-center"> <strong> Carrito de compras</strong></h1>
       </div>
 
-      <div class="row col-9 d-flex justify-content-between">
+      <div class="row col-12 d-flex justify-content-between">
         {% for item in productos %}
           <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
             <div class="card h-100" style="width: 15rem;">
@@ -27,13 +27,18 @@
               </div>
             </div>              
           </div>
-          {% empty %}
+          {% endfor %}
+          {% if empty %}
           <div class="row offset-1 col-sm-10">
             <ol class="list-group list-group-numbered">
                 <li class="list-group-item list-group-item-info"> Sin Articulos en tu carrito</li>
             </ol>
-        </div>
-        {% endfor %}
+          </div>
+          {% else %}
+          <div class="col-12 offset-4">
+            <a href="#"><button class="center btn btn-primary btn-block mt-4 fs-3 m-3 col-4 " >Pagar</button></a>
+          </div>  
+          {% endif %}                      
     </div>
 
     {% endblock main %}
