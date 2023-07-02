@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
-from .models import Producto, Comuna, Categoria, Region
+from .models import Producto, Comuna, Categoria
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib import messages
+from .forms import UsuarioForm
+from django.db import IntegrityError
 
+
+template_index   = 'core/WEB/Principal/index.html'
 # Create your views here.
 def index(request):
     template_name   = 'core/WEB/Principal/index.html'
 
     return render(request, template_name)
-
 
 
 def productos_servicios(request):
@@ -43,7 +48,23 @@ def ayuda_contrasenia(request):
 
 def login(request):
     template_name   ='core/WEB/ApartadoUsuario/login.html'
-    return render(request, template_name)
+    if request.method =='GET':
+        return render(request, template_name,{
+            'form': AuthenticationForm
+        })
+    else:
+        authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        if user is None:
+            return render(request, template_name,{
+            'form': AuthenticationForm,
+            'error': 'username or password is incorrect'
+            })
+        else:
+            return redirect(template_index)
+        return render(request, template_name,{
+            'form': AuthenticationForm
+        })
+
 
 def pedidos(request):
 
@@ -59,26 +80,23 @@ def registro_bike(request):
 
 
 def registro_usuario(request):
-    comunas         = Comuna.objects.all
-    template_name   = 'core/WEB/ApartadoUsuario/registro_usuario.html'
-    context         = {"comunas":comunas}
-
-    return render(request, template_name, context)
-
-def registro_usuario(request):
+    template_name ='core/WEB/ApartadoUsuario/registro_usuario.html'
     datos ={
-        'form': NewUserForm()
+        'form': UsuarioForm()
     }
     if (request.method =='POST'):
-        formulario = NewUserForm(request.POST)
+        formulario = UsuarioForm(request.POST)
         if (formulario.is_valid):
-            formulario.save() 
-        else:
-            datos["comuna"] = Comuna.objects.all()
+            formulario.save()
+        login(request, usuario)
+        return redirect('')        
+    else:
+        datos["comunas"] = Comuna.objects.all()
     return render(request, template_name, datos)
+    # return JsonResponse(datos)
 
 def seguimiento_envio(request):
-
+    
     return render(request, 'core/WEB/ApartadoUsuario/seguimiento_envio.html')
 
 # Apartado Contactanos
@@ -93,6 +111,9 @@ def carritoCompras(request):
 
     return render(request, 'core/WEB/Productos/carritoCompras.html')
 
+# def productosYservicios(request):
+
+#     return render(request, 'core/WEB/Productos/productosYservicios.html')
 
 def servicios(request):
 
@@ -101,20 +122,18 @@ def servicios(request):
 def form_usuario(request):
     return render(request, 'core/WEB/ApartadoUsuario/registro_usuario.html')
 
+def signout(request):
+    logout(request)
+    return redirect('/')
+
+
+
 def buscar_categorias(request, slug):
     template_name   = 'core/WEB/Productos/list-products-categories.html'
     cat             = Categoria.objects.get(slug=slug)
     categorias      = Categoria.objects.filter(activo=True)
     productos       = Producto.objects.filter(activo=True, categoria=cat)
     context         = {"productos":productos, "categorias":categorias}
-    return render(request, template_name, context)
-
-def search(request):
-    template_name   = 'core/WEB/Productos/productosYservicios.html'
-    q               = request.GET["q"]
-    productos       = Producto.objects.filter(activo=True, nombre_icontains=q)
-    categorias      = Categoria.objects.filter(activo=True)
-    context         = {"productos": productos,"categorias":categorias}
     return render(request, template_name, context)
 
 def detail(request, slug):
@@ -130,7 +149,7 @@ def cart(request,slug):
 
     initial     = {"items":[], "price": 0, "count": 0}
     session     = request.session.get("data", initial)
-    if slug in session["item"]:
+    if slug in session["items"]:
         messages.error(request,"Producto ya exixste en el Carrito")
     else:
         session["items"].append(slug)
@@ -138,7 +157,7 @@ def cart(request,slug):
         session["count"] += 1
         request.session["data"] = session
         messages.success(request, "Agregado Exitosamente.")
-    return redirect("core:details", slug)
+    return redirect("core:detail", slug)
 
 
 def mycart(request):
@@ -146,5 +165,6 @@ def mycart(request):
     sess             = request.session.get("data", {"items":[]})
     products         = Producto.objects.filter(activo=True, slug__in = sess["items"])
     categorias       = Categoria.objects.filter(activo=True)
-    context          = {"productos":products, "categorias":categorias}
+    total            = sess["price"]
+    context          = {"productos":products, "categorias":categorias, "total":tota}
     return render(request, template_name, context)

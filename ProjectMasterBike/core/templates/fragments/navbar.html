@@ -6,8 +6,8 @@
             <img src="{% static 'core/img/favicon-32x32.png'%} " alt="">
           </a>
           <div class="align">
-            <a href="{% url 'core:carritoCompras' %}"> 
-              <i class="fas fa-cart-shopping"></i> 
+            <a href="{% url 'core:carritoCompras' %}" class="btn btn-success"> 
+              <i class="fas fa-cart-shopping">{{request.session.data.count}}</i> 
             </a>                
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,29 +22,21 @@
                 <a class="nav-link {% if request.resolver_match.url_name == 'productosYservicios' %}active{% endif %}" href="{% url 'core:productosYservicios' %}"><span>Productos y servicios</span></a>
               </li>
               <li class="nav-item menu__item">
-                <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'core:login' %}"><span>Login</span></a>
-              </li>
-              <li class="nav-item menu__item">
                 <a class="nav-link {% if request.resolver_match.url_name == 'contactanos' %}active{% endif %}" href="{% url 'core:contactanos' %}"><span>Contacto</span></a>
               </li>
-              <!-- <li class="nav-item dropdown menu__item"  >
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  <span>Login</span>
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a class="dropdown-item" href="#"><span> 1</span></a></li>
-                  <li><a class="dropdown-item" href="#"><span> 2 </span></a></li>
-                  <li><a class="dropdown-item" href="#"><span> 3</span></a></li> -->
-                  
-                </ul>
-              </li>                      
+              
+                    
             </ul>            
             <div>
-              {% if user.is_authenticated %}
+              {% if request.user.is_authenticated %}
               <div class="d-flex justify-content-between align-items-center">
-             <p class="text-white-50 mx-3 my-2"> Bienvenido <span class="fw-bold text-capitalize">
-              <a href="#">Cerrar Sesion</a>
+             <p class="text-white-50 mx-3 my-2"> Bienvenido <span class="fw-bold text-capitalize">{{user.username}}</span>
+              <a href="/logout">Cerrar Sesion</a>
               <a href="#">Perfil</a>
+              {% else %}
+              <li class="nav-item menu__item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'login' %}active{% endif %}" href="{% url 'core:login' %}"><span>Login</span></a>
+              </li>
               {% endif %}        
            </div>
             </div>

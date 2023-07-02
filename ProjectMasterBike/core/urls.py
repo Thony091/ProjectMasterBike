@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import index, historia, metodos_envio, nuestras_tiendas, preguntas_frecuentes, ayuda_contrasenia, login, pedidos, usuario, registro_bike, registro_usuario, seguimiento_envio, productos_servicios, contactanos, carritoCompras, servicios, form_usuario, buscar_categorias, search, detail, cart, mycart
+from .views import index, historia, metodos_envio, nuestras_tiendas, preguntas_frecuentes, ayuda_contrasenia, login, pedidos, usuario, registro_bike, registro_usuario, seguimiento_envio, productos_servicios, contactanos, carritoCompras, servicios, form_usuario, buscar_categorias,  detail, cart, mycart, signout
 
 app_name='core'
 
@@ -21,14 +21,14 @@ urlpatterns = [
     path('carritoCompras', carritoCompras, name="carritoCompras"),
     path('productosYservicios', productos_servicios, name="productosYservicios"),
     path('servicios', servicios, name="servicios"),
-    path('registro-usuario', form_usuario, name='registro_usuario'),
+
     
-    path('search', search, name='search'),
+
     path('detail/<slug>', detail, name='detail'),
     path('<slug>/cart', cart, name='cart'),
     path('mycart/<slug>', mycart, name='mycart'),
-    path('categorias/<slug>', buscar_categorias, name="categorias")
+    path('categorias/<slug>', buscar_categorias, name="categorias"),
 
-
+    path('logout/', signout, name="logout")
 
 ]

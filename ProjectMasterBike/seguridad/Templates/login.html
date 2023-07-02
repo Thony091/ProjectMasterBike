@@ -7,34 +7,32 @@
   
   {% block main %}
     <main class="row">
-      <form action="" id="form-login"> 
-        {% csrf_token%}
+      <form action="{% url 'seguridad:login' %}" id="form-login" method="POST"> {% csrf_token %}
         <div class="contenedor offset-3 col-6">
             <div class="text-center mt-4 mb-3">
                 <i class="far fa-user" style="color: #0e65fb; font-size: 5rem;"></i>                        
             </div>
             <div class="offset-3 col-6 fs-4">
                 <label for="user">Nombre usuario:</label>
-                <input name="username" type="text" class="form-control fs-3" id="user" placeholder="usuario" required>
+                <input name="username" type="text" class="form-control fs-3" id="user" placeholder="usuario">
                  <small id="userHelp" class=" form-text text-danger"> </small>
             </div>
             <div class="offset-3 col-6 fs-4 mt-4">
                 <label for="password">Contraseña:</label>
-                <input name="password" type="password" class="form-control fs-3" id="password" placeholder="contraseña" required>
+                <input name="password" type="password" class="form-control fs-3" id="password" placeholder="contraseña">
                 <small id="passwordHelp" class=" form-text text-danger"> </small>
             </div>
             <div class="offset-3 col-6 fs-4 mt-4">
-                  <a href="{% url 'core:ayuda_contrasenia' %}">¿Olvidó su contraseña?</a>
+                  {% comment %} <a href="{% url 'core:ayuda_contrasenia' %}">¿Olvidó su contraseña?</a> {% endcomment %}
             </div>
             <div class="offset-3 col-6 fs-4 mt-4">                        
-              <a href="{% url 'core:principalUsuario' %}">
+              {% comment %} <a href="{% url 'core:principalUsuario' %}"> {% endcomment %}
                 <button type="submit" id="boton" class="btn btn-primary col-12 fs-3 mb-3">Iniciar sesión</button>
-              </a>   
-              {{error}}      
+              {% comment %} </a>          {% endcomment %}
                 <small id="finalHelp" class=" form-text text-danger"> </small>
             </div>                    
             <div class="offset-3 col-6 fs-4 mt-4 mb-4"> 
-                <p>¿No tiene una cuenta?<span><a href="{% url 'core:registro_usuario' %}"> Registrarse aquí</a> </span> </p>
+                {% comment %} <p>¿No tiene una cuenta?<span><a href="{% url 'core:registro_usuario' %}"> Registrarse aquí</a> </span> </p> {% endcomment %}
             </div>                    
             
         </div>
