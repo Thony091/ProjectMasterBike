@@ -10,10 +10,30 @@
       <div class="row mt-5 mb-5">
           <h1 class="text-center"> <strong> Carrito de compras</strong></h1>
       </div>
-      <div class="row offset-1 col-sm-10">
-          <ol class="list-group list-group-numbered">
-              <li class="list-group-item list-group-item-info"> Sin Articulos en tu carrito</li>
-          </ol>
-      </div>
+
+      <div class="row col-9 d-flex justify-content-between">
+        {% for item in productos %}
+          <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
+            <div class="card h-100" style="width: 15rem;">
+              <a href="{% url 'core:detail' item.slug %}"><img src="{{item.imagen}}" class="card-img-top" alt="..."></a>
+              <div class="card-body">
+                <h5 class="card-title"><strong>{{item.nombreProducto}}</strong>
+                </h5>
+                <p class="card-text"></p>
+                <p> <strong> $ {{item.precioProducto}}</strong></p>
+              </div>
+              <div class="card-footer">
+                <a href="{% url 'core:cart' item.slug %}" class="btn btn-success">Agregar a carrito de Compras</a>
+              </div>
+            </div>              
+          </div>
+          {% empty %}
+          <div class="row offset-1 col-sm-10">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item list-group-item-info"> Sin Articulos en tu carrito</li>
+            </ol>
+        </div>
+        {% endfor %}
+    </div>
 
     {% endblock main %}

@@ -107,9 +107,9 @@ def contactanos(request):
 
 # Apartado Productos
 
-def carritoCompras(request):
+# def carritoCompras(request):
 
-    return render(request, 'core/WEB/Productos/carritoCompras.html')
+#     return render(request, 'core/WEB/Productos/carritoCompras.html')
 
 # def productosYservicios(request):
 
@@ -161,10 +161,10 @@ def cart(request,slug):
 
 
 def mycart(request):
-    template_name    = 'core/WEB/Productos/productosYservicios.html'
+    template_name    = 'core/WEB/Productos/carritoCompras.html'
     sess             = request.session.get("data", {"items":[]})
     products         = Producto.objects.filter(activo=True, slug__in = sess["items"])
     categorias       = Categoria.objects.filter(activo=True)
     total            = sess["price"]
-    context          = {"productos":products, "categorias":categorias, "total":tota}
+    context          = {"productos":products, "categorias":categorias}
     return render(request, template_name, context)

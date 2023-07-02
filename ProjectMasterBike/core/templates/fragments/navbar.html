@@ -6,7 +6,7 @@
             <img src="{% static 'core/img/favicon-32x32.png'%} " alt="">
           </a>
           <div class="align">
-            <a href="{% url 'core:carritoCompras' %}" class="btn btn-success"> 
+            <a href="{% url 'core:mycart' %}" class="btn btn-success"> 
               <i class="fas fa-cart-shopping">{{request.session.data.count}}</i> 
             </a>                
           </div>
