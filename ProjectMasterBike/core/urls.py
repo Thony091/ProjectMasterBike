@@ -15,6 +15,7 @@ urlpatterns = [
     path('principalUsuario', usuario, name="principalUsuario"),
     path('registro_bike', registro_bike, name="registro_bike"),
     path('registro_usuario', registro_usuario, name="registro_usuario"),
+    
     path('seguimiento_envio', seguimiento_envio, name="seguimiento_envio"),
     path('contactanos', contactanos, name="contactanos"),
     path('carritoCompras', carritoCompras, name="carritoCompras"),

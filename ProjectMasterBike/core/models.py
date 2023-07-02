@@ -22,19 +22,19 @@ class Usuario(models.Model):
     idUsuario               = models.AutoField(primary_key = True, verbose_name = 'Id de usuario')
     nombreUsuario           = models.CharField(max_length = 70, verbose_name = 'Nombre del usuario')
     apellidoUsuario         = models.CharField(max_length = 70, verbose_name = 'Apellido del usuario')
-    rutUsuario              = models.IntegerField(verbose_name = 'Rut del usuario')
+    rutUsuario              = models.CharField(max_length = 70, verbose_name = 'Rut del usuario')
     emailUsuario            = models.EmailField(max_length = 30, unique = True, verbose_name = 'Email del usuario')
     contraseniaUsuario      = models.CharField(max_length = 30, verbose_name = 'Contraseña del usuario')
     direccionUsuario        = models.CharField(max_length = 70, null = True, verbose_name='Dirección del usuario')
-    comuna                  = models.ForeignKey(Comuna, on_delete = models.CASCADE)
+    comuna                  = models.ForeignKey(Comuna, null=True, on_delete = models.CASCADE)
 
     def __str__(self):
         return self.nombreUsuario
 
 class Categoria(models.Model):
     idCategoria             = models.AutoField(primary_key = True, verbose_name='Id de categoria')
-    slug                    = AutoSlugField(populate_from="nombreCategoria", null=True)
     nombreCategoria         = models.CharField(max_length = 30, verbose_name='Nombre de categoria')
+    slug                    = AutoSlugField(populate_from="nombreCategoria", null=True)
     activo                  = models.BooleanField(default="True")
     
     def __str__(self):
@@ -47,6 +47,7 @@ class Producto(models.Model):
     imagen                  = models.CharField(max_length=250, null=True )    
     caracteristicaProducto  = models.CharField(max_length = 255, verbose_name='Descripcion del producto')
     precioProducto          = models.IntegerField(verbose_name='Precio de producto')
+    stock                   = models.PositiveIntegerField("Cantidad del producto en stock", default=0)
     categoria               = models.ForeignKey(Categoria, on_delete = models.CASCADE)
     destacado               = models.BooleanField(default="True")
     activo                  = models.BooleanField(default="True")

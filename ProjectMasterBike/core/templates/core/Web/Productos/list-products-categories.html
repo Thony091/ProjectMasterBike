@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+  {% load static %}
+  {% block head %}
+  <title>MasterBike</title>
+  {% endblock %}
+  
+    {% block main %}
+        <main class=" mt-5">
+            <div class="row mt-5 fondo_productos justify-content-around producto_img">
+            <div class="row  col-12 text-center mt-3">
+                <h2 style="font-weight: bold; text-shadow: 2px 2px 2px white;">Nuestros productos</h2>
+            </div> 
+            <div class="row col-2 col-lg-2">
+                <h1 class="my-4">Categorias</h1>
+                <div class="list-group">
+                    {% for c in categorias %}
+                    <a href="{%  url 'core:categorias' c.slug %}" class="list-group-item">{{c.nombreCategoria}}</a>
+                    {% endfor %}
+                </div>
+
+            </div >
+            <div class="row col-9 d-flex justify-content-between">
+                {% for item in productos %}
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
+                    <div class="card h-100" style="width: 15rem;">
+                        <a href="{% url 'core:detail' item.slug %}"><img src="{{item.imagen}}" class="card-img-top" alt="..."></a>
+                        <div class="card-body">
+                        <h5 class="card-title"><strong>{{item.nombreProducto}}</strong>
+                        </h5>
+                        <p class="card-text"></p>
+                        <p> <strong> $ {{item.precioProducto}}</strong></p>
+                        </div>
+                        <div class="card-footer">
+                        <a href="{% url 'core:cart' item.slug %}" class="btn btn-success">Agregar a carrito de Compras</a>
+                        </div>
+                    </div>              
+                    </div>
+                    {% empty %}
+                    <div class="card w-100">
+                    <div class="card-body">
+                        <h4>No se encontraron productos de esa categoria</h4>
+                    </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </main>
+
+        {% endblock main %}
