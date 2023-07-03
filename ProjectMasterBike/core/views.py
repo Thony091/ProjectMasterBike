@@ -146,13 +146,12 @@ def detail(request, slug):
         return render(request, template_name, context)
 
 def cart(request,slug):
-    template_name    = 'core/WEB/Productos/carritoCompras.html'
     product     = Producto.objects.get(slug=slug)
 
     initial     = {"items":[], "price": 0, "count": 0}
     session     = request.session.get("data", initial)
     if slug in session["items"]:
-        messages.error(request,"Producto ya exixste en el Carrito")
+        messages.error(request,"Producto ya existe en el Carrito")
     else:
         session["items"].append(slug)
         session["price"] += product.precioProducto
