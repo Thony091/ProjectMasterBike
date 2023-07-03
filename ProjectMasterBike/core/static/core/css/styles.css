@@ -150,3 +150,12 @@ footer div i a{
 nav div i{
     font-size: 2rem;
 }
+.carrito-fixed{
+    text-shadow: 2px 2px 3px white,-2px -2px 3px rgb(249, 249, 249);
+}
+.carrito-fixed:hover{
+    font-size: 3rem;
+    color: rgb(90, 224, 12);
+    text-shadow: 3px 3px 5px rgb(255, 0, 0),-2px -2px 5px rgb(252, 5, 5);
+    transition: 1.3s;
+}

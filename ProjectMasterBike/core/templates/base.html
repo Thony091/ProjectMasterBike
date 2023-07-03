@@ -41,9 +41,15 @@
               </div>            
             </form>
             
-            <div style="position: fixed; right: 1rem;bottom: 1rem; border-radius: solid 3px black;">
-              <a href="{% url 'core:mycart' %}" class="btn btn-primary"> 
-                <i class="fas fa-cart-shopping" style="width: 2rem; ">{{request.session.data.count}}</i> 
+            <div 
+                style="position: fixed; 
+                       right: 2rem;
+                       bottom: 1rem; 
+                       border-radius: solid 3px black;
+                       text-shadow: 2px 2px 3px white,-2px -2px 3px rgb(252, 5, 5);
+                       ">
+              <a href="{% url 'core:mycart' %}" class="btn btn-primary" > 
+                <i class="fas fa-cart-shopping " style="width: 3rem; ">{{request.session.data.count}}</i> 
               </a>      
             </div>
 

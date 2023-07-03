@@ -12,8 +12,9 @@
       </div>
 
       <div class="row col-12 d-flex justify-content-between">
+        <div class="container-fluid  d-flex justify-content-around" style="background-color: rgba(253, 223, 184, 0.685);">
         {% for item in productos %}
-          <div class="col-sm-6 col-md-4 col-lg-3 col-xxl-2 mb-4" >
+          <div class=" col-xs-12 col-sm-6 col-md-5 col-lg-4 col-xxl-3 mb-4" >
             <div class="card h-100" style="width: 15rem;">
               <a href="{% url 'core:detail' item.slug %}"><img src="{{item.imagen}}" class="card-img-top" alt="..."></a>
               <div class="card-body">
@@ -27,7 +28,8 @@
               </div>
             </div>              
           </div>
-          {% endfor %}
+        {% endfor %}
+        </div>
           {% if empty %}
           <div class="row offset-1 col-sm-10">
             <ol class="list-group list-group-numbered">
