@@ -5,25 +5,55 @@
 <title>MasterBike</title>
 {% endblock %}
   
-  {% block main %}
-<div class="row">
-  <h1 class="text-center">Nuestra Historia</h1>
+{% block main %}
+<div class="container">
   <div class="row">
-                      
-    <p class="col-5 text-center p-5 offset-1"><b>Somos una empresa creada en el año 2020 enfocada en satisfacer las necesidades de los ciclistas. Todo partió en el patio de uno de nuestros amigos como un pequeño taller durante la pandema, la cual nos gatillo a lo que actualmente somos, un taller establecido con el cual Buscamos entregar un servicio honesto y de calidad, en un tiempo justo.
-                        Contamos con taller a la vista para ofrecer una atención transparente de acuerdo a nuestros estándares de servicio. Realizamos todo tipo de reparaciones y proyectos especiales, armamos y reparamos bicicletas, traemos productos junto con repuestos a pedido y armamos bicicletas personalizadas.</b></p>
-    <img src="{% static 'core/img/taller_viejo.jpeg'%}" class="taller_viejo offset-1"  alt="">
-                    
+    <div class="col-12">
+      <h1 class="text-center">Nuestra Historia</h1>
+    </div>
   </div>
 
   <div class="row mt-4">
-    <img src="{% static 'core/img/taller_nuevo.webp'%}" class="taller_viejo offset-2" alt="">
+    <div class="col-md-6">
+      <img src="{% static 'core/img/taller_viejo.jpeg'%}" class="img-fluid" alt="Antiguo taller">
+    </div>
+    <div class="col-md-6">
+      <p class="text-justify">
+        <b>Somos una empresa que nació en el año 2020 con la firme intención de satisfacer las necesidades de los entusiastas del ciclismo. Todo comenzó en el patio de uno de nuestros amigos, como un pequeño taller durante la pandemia. Esta experiencia nos impulsó a convertirnos en lo que somos hoy: un taller establecido y confiable.</b>
+      </p>
 
-    <p class=" col-5 text-center p-5">realizamos mantenciones completas, contamos con el servicio de retiro y entrega a domicilio. Mantenemos constante comunicación con el cliente. Trabajamos por satisfacer las necesidades de nuestros clientes, entregando un servicio de excelencia,
-                      que esté por sobre sus expectativas.</p>
+        <b>Realizamos mantenimientos completos y ofrecemos el conveniente servicio de retiro y entrega a domicilio. Nos aseguramos de mantener una comunicación constante con nuestros clientes. Nuestro principal objetivo es satisfacer plenamente sus necesidades, superando incluso sus expectativas, al brindar un servicio de excelencia en todo momento.</b>
+      </p>
+    </div>
   </div>
-  <div class="row mt-5">
-    <img class=" offset-1 col-10" src="{% static 'core/img/original_Golden_hour_biking.jpg'%}" alt="">
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <p class="text-justify">
+        
+        <b>Somos expertos en proporcionar soluciones de calidad para los amantes del ciclismo. Nuestro equipo altamente capacitado se encarga de realizar reparaciones y mantenimientos completos de bicicletas, asegurando un rendimiento óptimo y duradero. Además, ofrecemos una amplia gama de productos y repuestos de las mejores marcas, así como servicios personalizados para satisfacer las necesidades individuales de nuestros clientes. Confía en nosotros para disfrutar de una experiencia ciclista excepcional.</b>
+
+      </p>
+    </div>
+    <div class="col-md-6">
+      <img src="{% static 'core/img/taller_nuevo.webp'%}" class="img-fluid" alt="Nuevo taller">
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-12">
+      <img class="img-fluid" src="{% static 'core/img/original_Golden_hour_biking.jpg'%}" alt="Bicicleta en la hora dorada">
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <p class="text-justify">
+      </p>
+    </div>
+    <div class="col-md-6">
+      <!-- Columna vacía para mantener la alineación -->
+    </div>
   </div>
 </div>
 
