@@ -37,7 +37,7 @@ INSERT INTO core_comuna(nombreComuna, region_id) VALUES
 ---------------------------------------------------------
 -- Tabla Producto
 ---------------------------------------------------------
-INSERT INTO core_producto(nombreProducto, caracteristicasProducto, precioProducto, categoria_id, activo, destacado, imagen, slug, stock) VALUES
+INSERT INTO core_producto(nombreProducto, caracteristicaProducto, precioProducto, categoria_id, activo, destacado, imagen, slug, stock) VALUES
 ("Casco Rideland","Casco de bicicleta Rideland para hombre y mujer, ligeros para andar en montañas o carretera.", 25000 , 3, 1, 1, "https://res.cloudinary.com/dntrffhra/image/upload/v1688186002/casco_ogxwws.jpg", "casco-rideland", 10),
 ("Sillin Topmega","Sillin Topmega con Tecnologia de alto nivel, permitiendo que puedas estar mucho más tiempo cómodo realizando deporte de alta intensidad.", 22500 , 2, 1, 1, "https://res.cloudinary.com/dntrffhra/image/upload/v1688186001/asiento_pfz9cx.jpg", "sillin-topmega", 15),
 ("Horquilla Rockshox","El Lyrik Select combina la cámara de aire DebonAir con el confiable amortiguador Charger RC que ofrece compresión a baja velocidad y control de amortiguación de rebote.", 45000 , 2, 1, 1, "https://res.cloudinary.com/dntrffhra/image/upload/v1688186001/amortiguadores_tt2f14.jpg", "horquilla-rockshox", 40),
