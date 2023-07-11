@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, User
 from autoslug import AutoSlugField
 
 # Create your models here.
@@ -65,3 +65,13 @@ class ListaCompras(models.Model):
 
     def __str__(self):
         return self.valorTotalCompra
+
+class Contacto(models.Model):
+    id                      = models.AutoField(primary_key= True, verbose_name="id Contacto")
+    nombreCompleto          = models.CharField(max_length = 70, verbose_name = 'Nombre de enviante')
+    emailUsuario            = models.EmailField(max_length = 30, verbose_name = 'Email de enviante')
+    asunto                  = models.CharField(max_length = 30, verbose_name = 'asunto del mensaje')
+    mensaje                 = models.TextField(max_length=1000)
+
+    def __str__(self):
+        return self.asunto

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load crispy_forms_tags %}
   {% load static %}
   {% block head %}
   <title>MasterBike</title>
@@ -17,80 +17,16 @@
             <h2 class="border-bottom">Informacion Personal</h2>
           </div>
           {% csrf_token %}
-          <div class="form-group">
-          
+          <div class="" >
+            <div class="card-body">
+              {{ form | crispy }}
+            </div>
           </div>
-
-          <div class="form-group mb-2">
-            <label for="name">Nombres*:</label>
-            <input name="nombreUsuario" type="text" class="form-control fs-4" id="name" placeholder="Juanito Connor">
-            <small id="nameHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="form-group mb-2">
-            <label for="lastName">Apellidos*:</label>
-            <input name="apellidoUsuario" type="text" class="form-control fs-4" id="lastName" placeholder="Connor">
-            <small id="lastNameHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="form-group mb-2">
-            <label for="rut">Rut:</label>
-            <input name="rutUsuario" type="text" class="form-control fs-4" id="rut" placeholder="12345678-k">
-            <small id="rutHelp" class=" form-text text-danger"> </small>
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="direccion">Dirección:</label>
-            <input name="direccionUsuario" type="text" class="form-control fs-4" id="direccion" placeholder="Calle Siempre viva 123">
-            <small id="direccionHelp" class=" form-text text-danger"> </small>
-          </div>
-
-
-          <div class="form-group mb-2">
-            <label class="col-5" for="comuna">Comuna:</label>
-            <select class="form-select fs-3" name="comuna" id="comuna">
-              <option value="0" selected>Elegir Comuna</option>
-
-              {% for com in comunas %}
-                <option value="{{ com.idComuna }}">{{ com.nombreComuna }}</option>
-              {% endfor %}
-            </select>
-            <small id="comunaHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="mt-5 mb-3">
-            <h2 class="border-bottom">Informacion de Login</h2>
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="mail">E-mail*:</label>
-            <input name="emailUsuario" type="text" class="form-control fs-4" id="mail" placeholder="JuanitoConnor@Skynet.com">
-            <small id="mailHelp" class=" form-text text-danger"> </small>
-          </div>
-      
-          <div class="form-group mb-2">
-            <label for="password">Contraseña*:</label>
-            <input name="contraseniaUsuario" type="password" class="form-control fs-4" id="password" placeholder="******">
-            <small id="passwordHelp" class=" form-text text-danger"> </small>
-          </div>
-
-          <div class="form-group mb-2">
-            <label for="passwordConfirm">Confirmar la Contraseña*:</label>
-            <input type="password" class="form-control fs-4" id="passwordConfirm" placeholder="******">
-            <small id="passwordConfirmHelp" class=" form-text text-danger"> </small>
-          </div>
-
           <div class="">
-            <input id="registrar" class="btn btn-primary btn-block mt-4 fs-3 col-2" type="submit" value="Enviar"></input>
-            <input id="limpiar" class="btn btn-primary btn-block mt-4 fs-3 col-2" type="reset" value="Limpiar"></input>
-            <small id="finalHelp" class="form-text text-danger"> </small>
+            <input id="limpiar" class="btn btn-primary btn-block mt-4 fs-3 col-sm-4 " type="reset" value="Limpiar"></input>
+            <input class="btn btn-primary btn-block mt-4 fs-3 col-sm-4" type="submit" value="Registrar"></input>
           </div>
-          
+
         </form>      
       </main>      
     {% endblock main %}
-
-    {% block scripts %}
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="{% static 'core/js/validacionesRegistroUsuario.js'%}"></script>
-    {% endblock scripts %}

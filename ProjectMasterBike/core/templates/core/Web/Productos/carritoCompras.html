@@ -24,23 +24,35 @@
                 <p> <strong> $ {{item.precioProducto}}</strong></p>
               </div>
               <div class="card-footer">
-                <a href="{% url 'core:cart' item.slug %}" class="btn btn-success">Agregar a carrito de Compras</a>
+                <a href="{% url 'core:cart' item.slug %}" class="btn btn-danger">eliminar</a>
               </div>
             </div>              
           </div>
         {% endfor %}
         </div>
+      </div>
+      <div class="row">
+        <div class=" col-4 offset-4">
+          <table class=" table table-bordered border-primary mt-5 mb-5 ">
+            <tbody class="table-group-divider">
+              <tr>
+                <td><i class="bi bi-credit-card-fill"></i> total a pagar </td>    <td><i class="bi bi-currency-dollar"></i> {{request.session.data.price}}</td>  
+              </tr>   
+            </tbody>
+          </table>
+        </div>
+  
           {% if empty %}
-          <div class="row offset-1 col-sm-10">
+          <div class="offset-1 col-sm-10">
             <ol class="list-group list-group-numbered">
                 <li class="list-group-item list-group-item-info"> Sin Articulos en tu carrito</li>
             </ol>
           </div>
-          {% else %}
-          <div class="col-12 offset-4">
-            <a href="#"><button class="center btn btn-primary btn-block mt-4 fs-3 m-3 col-4 " >Pagar</button></a>
-          </div>  
-          {% endif %}                      
-    </div>
+          {% else %}          
+            <div class="col-12 offset-4">
+              <a href="#"><button class="center btn btn-primary btn-block mt-4 fs-3 m-3 col-4 " >Pagar</button></a>
+            </div>            
+          {% endif %}   
+      </div>
 
     {% endblock main %}
