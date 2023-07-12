@@ -4,7 +4,7 @@
   {% block head %}
   <title>MasterBike</title>
   {% endblock %}
-  
+  {% load humanize %}
     {% block main %}
 
       <div class="row mt-5 mb-5">
@@ -36,7 +36,7 @@
           <table class=" table table-bordered border-primary mt-5 mb-5 ">
             <tbody class="table-group-divider">
               <tr>
-                <td><i class="bi bi-credit-card-fill"></i> total a pagar </td>    <td><i class="bi bi-currency-dollar"></i> {{request.session.data.price}}</td>  
+                <td><i class="bi bi-credit-card-fill"></i> total a pagar </td>    <td><i class="bi bi-currency-dollar"></i> {{request.session.data.price | floatformat:3}}</td>  
               </tr>   
             </tbody>
           </table>

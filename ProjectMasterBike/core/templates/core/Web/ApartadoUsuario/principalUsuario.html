@@ -10,14 +10,12 @@
         <div class="offset-1 col-12 mt-5 mb-2">
           <h1>Mi Cuenta</h1>
         </div>
-
+        
         <aside class="col-sm-2 bg-light-subtle m-4">
           <div>
-            <p><strong>Mi cuenta</strong></p>
-            <a href="{% url 'core:pedidos' %}" style="text-decoration: none
-            ;"><p>Mis Pedidos</p></a>
-            <a href="{% url 'core:index' %}" style="text-decoration: none
-            ;"><p>Salir</p></a>
+            <a href="{% url 'core:principalUsuario' %}"></a> <p><strong>Mi cuenta</strong></p>
+            <a href="{% url 'core:pedidos' %}" style="text-decoration: none;"><p>Mis Pedidos</p></a>
+            <a href="/logout" style="text-decoration: none;"><p>Salir</p></a>
           </div>
         </aside>
 
@@ -29,8 +27,8 @@
 
           <div>
             <p><strong>Informacion de contacto</strong></p>
-            <span id="user">Nomre de Usuario</span><br>
-            <span id="email">correo_electronico</span><br>
+            <span id="user">{{user.username}}</span><br>
+            <span id="email">{{user.email}}</span><br>
             <a href="#" style="text-decoration: none;">Editar</a>
           </div>
 

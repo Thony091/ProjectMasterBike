@@ -17,11 +17,14 @@ def index(request):
 
     return render(request, template_name)
 
-
+#Método que renderiza la página y el contexto que se le enviará al llamar a la url vinculada a este método
 def productos_servicios(request):
     template_name   ='core/WEB/Productos/productosYservicios.html'
+    # variable que guardara todos los objetos de categorias filtrados por si estan activos
     categorias      = Categoria.objects.filter(activo=True)
+    # variable que guardara todos los objetos de productos filtrados por si estan activos
     productos       = Producto.objects.filter(activo=True)
+    # variable que guardara un diccionario con la información filtrada en los pasos anteriores y los enviara a la pagina indicada para ser usada
     context         = {"productos":productos, "categorias":categorias}
     return render(request, template_name, context)
 
@@ -48,22 +51,27 @@ def preguntas_frecuentes(request):
 def ayuda_contrasenia(request):
 
     return render(request, 'core/WEB/ApartadoUsuario/ayuda_contrasenia.html')
-
+#Método para logear
 def user_login(request):
     template_name   ='core/WEB/ApartadoUsuario/login.html'
-    if request.method =='GET':
+    if request.method =='GET':#Cuando el metodo sea "Get" (cuando llamas a la pagina) enviará la la "forma" para ser implementada
         return render(request, template_name,{
             'form': AuthenticationForm
         })
-    else:
-        #Autenticamos el usuario y el password con el motodo "Authenticate"
+    else: #al ser "else" se entiende que el método es "post"
+        #Autenticamos el usuario y el password con el método "Authenticate"(método de django) y lo guardamos en una variable
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
-        if user is None: #pregunta si el usuario no se encontro en             
+        if user is None: #pregunta si el usuario no se encontro en bd reenvia el formularia y un mensaje de error.             
             return render(request, template_name,{'form': AuthenticationForm,
                         'error': 'usuario o contraseña incorrecta'})
-        else:
+        else:#si encuentra el usuario lo logueara y redireccionara al index
             login(request, user)
             return redirect('core:index')
+
+# Método que ayudara a deslogear de la cuenta (método de django)
+def signout(request):
+    logout(request) #
+    return redirect('/')
 
 def pedidos(request):
 
@@ -77,14 +85,16 @@ def registro_bike(request):
     
     return render(request, 'core/WEB/ApartadoUsuario/registro_bike.html')
 
-
+#Método para registrar usuario
 def registro_usuario(request):
     template_name = 'core/WEB/ApartadoUsuario/registro_usuario.html'
+    # variable que guarda la "forma" para la creacion de un usuario, se podra renderizar cuando se invoque la url asociada a este método
     data = {
         'form': ClienteCreationForm()
     }
 
     if request.method == 'POST':
+        # variable que guarda la data enviada desde el front con el "method='post'" 
         user_creation_form = ClienteCreationForm(data=request.POST)
 
         if user_creation_form.is_valid():
@@ -123,47 +133,41 @@ def contactanos(request):
 
 # Apartado Productos
 
-# def carritoCompras(request):
-
-#     return render(request, 'core/WEB/Productos/carritoCompras.html')
-
-# def productosYservicios(request):
-
-#     return render(request, 'core/WEB/Productos/productosYservicios.html')
-
 def servicios(request):
     return render(request, 'core/WEB/Productos/servicios.html')
 
-def form_usuario(request):
-    return render(request, 'core/WEB/ApartadoUsuario/registro_usuario.html')
-
-def signout(request):
-    logout(request)
-    return redirect('/')
-
-
-
+#Método para agrupar productos por el tipo de categoria enviado desde el front cuando pulsan el tipo de categoria que se prefiere (llega por el slug)
 def buscar_categorias(request, slug):
     template_name   = 'core/WEB/Productos/list-products-categories.html'
-    cat             = Categoria.objects.get(slug=slug)
+    #variable que guarda los objetos con el nombre que se envio al dar click en la variable "slug"
+    cat             = Categoria.objects.get(slug=slug) 
+    # variable que guardara todos los objetos de categorias filtrados por si estan activos
     categorias      = Categoria.objects.filter(activo=True)
+    # variable que guardara todos los objetos de categorias filtrados por si estan activos y sean de la categoria guardad en la variable cat
     productos       = Producto.objects.filter(activo=True, categoria=cat)
     context         = {"productos":productos, "categorias":categorias}
     return render(request, template_name, context)
 
+#Método para ver el detalle de un producto al pulsar en la fotografia o al agregar al carrito de compra 
 def detail(request, slug):
+    #el método preguntara si el producto enviado desde el front está activo y con el nombre almacenado en "slug" existe en la base de datos
     if Producto.objects.filter(activo=True, slug=slug).exists():
         template_name   = 'core/WEB/Productos/detail.html'
-        producto        = Producto.objects.get(activo=True, slug=slug)
-        categorias      = Categoria.objects.filter(activo=True)
-        context         = {"producto":producto, "categorias":categorias}
+        # variable que guarda el objeto de tipo producto en el caso de que sea un producto activo y que tenga el nombre enviado desde el front por "slug" 
+        # esta variable se enviara como contexto al front dentro de una lista.
+        producto        = Producto.objects.get(activo=True, slug=slug)        
+        context         = {"producto":producto}
         return render(request, template_name, context)
-
+#Método que agregará los productos seleccionados en el carrito de compra
 def cart(request,slug):
+    # variable que guarda el objeto de tipo producto en el caso de que tenga el nombre enviado desde el front por "slug" 
     product     = Producto.objects.get(slug=slug)
+    #variable que guarda un diccionario con distintos tipos de variables inicializadas, estos serviran para guardar los productos enviados desde el front
     initial     = {"items":[], "price": 0, "count": 0}
+    # variable que guarda la session actual y la une al diccicionario creado en el paso anterior y guardado en la variable "initial"
     session     = request.session.get("data", initial)
-    if slug in session["items"]:
+
+    if slug in session["items"]: # esta validación restringirá los items a solo 1 por carro
         messages.error(request,"Producto ya existe en el Carrito")
     else:
         session["items"].append(slug)
@@ -171,8 +175,10 @@ def cart(request,slug):
         session["count"] += 1
         request.session["data"] = session
         messages.success(request, "Agregado Exitosamente.")
+        #redireccionamento al detalle del producto agregado
     return redirect("core:detail", slug)
 
+#Método para eliminar objetos del carrito (no funcional aun)
 def eliminar_producto(request,slug):
     template_name     = 'core/WEB/Productos/carritoCompras.html'
     product           = Producto.objects.get(slug=slug)
@@ -188,12 +194,13 @@ def eliminar_producto(request,slug):
     context           = {"productos":products}
     return render(request, template_name, context)
 
-@login_required 
+#Método para visualizar el carrito de compra
 def mycart(request):
     template_name    = 'core/WEB/Productos/carritoCompras.html'
+    # variable que guarda el diccionario de la data de la sesion
     sess             = request.session.get("data", {"items":[]})
+    # variable que guarda los objetos de tipo producto filtrados por si estan activos y los "slug" estan dentro de la lista guardada en la variable sess
     products         = Producto.objects.filter(activo=True, slug__in = sess["items"])
-    categorias       = Categoria.objects.filter(activo=True)
-   
-    context          = {"productos":products, "categorias":categorias}
+    # variable que guarda una lista que contiene los productos guardados en la variable "products"
+    context          = {"productos":products}
     return render(request, template_name, context)

@@ -8,7 +8,10 @@
 
 {% block main %}
     <main class="row">
-      <form action="" id="form-login" method="POST"> 
+
+      <p class="col-12 text-center"><strong>{{error}}</strong></p>
+
+      <form action="" id="form-login f_login" method="POST"> 
         {% csrf_token %}
         <div class="contenedor offset-3 col-6">
             <div class="text-center mt-4 mb-3">
@@ -20,7 +23,7 @@
             </div>
             <div class="offset-3 col-6 fs-4 mt-4">                        
                 <button type="submit" id="boton" class="btn btn-primary col-12 fs-3 mb-3">Iniciar sesión</button>                 
-              {{error}}      
+              
                 <small id="finalHelp" class=" form-text text-danger"> </small>
             </div>                    
             <div class="offset-3 col-6 fs-4 mt-4 mb-4"> 

@@ -13,11 +13,9 @@
     
             <aside class="col-sm-2 bg-light-subtle m-4">
               <div>
-                <a href="/Web/Apartado Usuario/PrincipalUsuario.html"><p>Mi cuenta</p></a>
-
-                <p> <strong> Mis Pedidos</strong></p>
-                <a href="/Web/Principal/index.html" style="text-decoration: none
-                ;"><p>Salir</p></a>
+                <a href="{% url 'core:principalUsuario' %}" style="text-decoration: none;"><p>Mi cuenta</p></a>
+                <p><strong>Mis Pedidos</strong></p>
+                <a href="/logout" style="text-decoration: none;"><p>Salir</p></a>
               </div>
             </aside>
     

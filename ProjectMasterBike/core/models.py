@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, User
-from autoslug import AutoSlugField
+from autoslug import AutoSlugField #libreria que une las palabras separadas con "-" y transforma en minusculas
 
 # Create your models here.
 
@@ -44,7 +44,7 @@ class Categoria(models.Model):
 class Producto(models.Model):
     idProducto              = models.AutoField(primary_key = True, verbose_name = 'Id de producto')
     nombreProducto          = models.CharField(max_length = 50, verbose_name = 'Nombre del producto')
-    slug                    = AutoSlugField(populate_from="nombreProducto", null=True)
+    slug                    = AutoSlugField(populate_from="nombreProducto", null=True) #populate_from declara que se rellenara con lo que se rellene el campo "nombreProducto"
     imagen                  = models.CharField(max_length=250, null=True )    
     caracteristicaProducto  = models.CharField(max_length = 255, verbose_name='Descripcion del producto')
     precioProducto          = models.IntegerField(verbose_name='Precio de producto')

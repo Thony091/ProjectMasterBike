@@ -23,11 +23,10 @@
   </head>
   <body>
     <div class="container-fluid">      
-          {% include "fragments/navbar.html" %}
-          
+          {% include "fragments/navbar.html" %}            
           {% if messages %}
             {% for message in messages %}
-            <div clas="notification {{message.tags}}" style="background-color: rgb(30, 237, 27); text-align: center; font-weight: bold;">
+            <div clas="notification {{message.tags}}">
               {{ message }}
             </div>
             {% endfor %}

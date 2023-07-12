@@ -117,18 +117,15 @@ div p.parrafo_index span:hover{
     transition: 1.3s;
 
 }
-
 .taller_viejo {
     
     width: 450px;
     
 }
-
 div.producto_img img{
     max-height: 240px;
     max-width: 240px;
 }
-
 div.card2{
     min-height: 640px;
     max-width: 238px;
@@ -138,10 +135,24 @@ div.card2 a{
     position: absolute;
     bottom: 1rem;
 }
-
 footer div i a{
     font-family: roboto;
     margin: 10px;
+}
+.f_login{
+    margin: 0;
+    padding: 40px;
+    font-size: 1rem;
+}
+form.f_login input{
+    width: 100%;
+    border: 0;
+    border-bottom: 2px solid #D3D8DC;
+    outline: 0;
+    background: #fff;
+    padding: 20px 0 4px;
+    margin: 0 0 20px;
+    color: #777B7E;
 }
 .align{    
     position: absolute;
@@ -159,4 +170,20 @@ nav div i{
     text-shadow: 3px 3px 5px rgb(255, 0, 0),-2px -2px 5px rgb(252, 5, 5);
     transition: 1.3s;
 }
-
+/* Notificaciones */
+.notification {
+    text-align: center;
+    padding: 10px 20px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 0.9rem;
+  }
+  .success {
+    background: #43DC7E;
+    color: white;
+  }
+  .error {
+    background: #AB3444;
+    color: white;
+    margin-bottom: 20px;
+  }

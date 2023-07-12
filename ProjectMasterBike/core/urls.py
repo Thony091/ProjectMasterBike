@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import index, historia, metodos_envio, nuestras_tiendas, preguntas_frecuentes, ayuda_contrasenia, user_login, pedidos, usuario, registro_bike, registro_usuario, seguimiento_envio, productos_servicios, contactanos,  servicios, form_usuario, buscar_categorias,  detail, cart, mycart, signout, eliminar_producto
+from .views import index, historia, metodos_envio, nuestras_tiendas, preguntas_frecuentes, ayuda_contrasenia, user_login, pedidos, usuario, registro_bike, registro_usuario, seguimiento_envio, productos_servicios, contactanos,  servicios, buscar_categorias,  detail, cart, mycart, signout, eliminar_producto
 
 app_name='core'
 
@@ -20,8 +20,6 @@ urlpatterns = [
     path('contactanos', contactanos, name="contactanos"),
     path('productosYservicios', productos_servicios, name="productosYservicios"),
     path('servicios', servicios, name="servicios"),
-
-    
 
     path('detail/<slug>', detail, name='detail'),
     path('eliminar/<slug>', eliminar_producto, name='eliminar_producto'),
