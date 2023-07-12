@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     let form = document.querySelector("#form-login");
-    let user = document.querySelector("#user");
+    let user = document.querySelector("#username");
     let password = document.querySelector("#password"); 
     
 

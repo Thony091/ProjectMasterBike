@@ -11,7 +11,7 @@
 
       <p class="col-12 text-center"><strong>{{error}}</strong></p>
 
-      <form  id="form-login f_login" method="POST"> 
+      <form  id="form-login "  method="POST"> 
         {% csrf_token %}
         <div class="contenedor offset-3 col-6">
             <div class="text-center mt-4 mb-3">
@@ -36,5 +36,5 @@
  {% endblock main %}
 
  {% block scripts %}
- {% comment %} <script src="{% static 'core/js/validacionLogin.js'%}"></script> {% endcomment %}
+<script src="{% static 'core/js/validacionLogin.js'%}"></script>
  {% endblock scripts %}

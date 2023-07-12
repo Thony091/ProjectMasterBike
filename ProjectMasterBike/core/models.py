@@ -61,7 +61,7 @@ class ListaCompras(models.Model):
     valorTotalCompra        = models.IntegerField(null = True, blank = True, verbose_name='Valor total de compra')
     cantidadProductos       = models.IntegerField(null = True, blank = True, verbose_name = 'Cantidad de productos')
     producto                = models.ForeignKey(Producto, on_delete = models.CASCADE)
-    usuario                 = models.ForeignKey(Usuario, on_delete = models.CASCADE)
+    usuario                 = models.ForeignKey(User, on_delete = models.CASCADE)
 
     def __str__(self):
         return self.valorTotalCompra
@@ -75,3 +75,17 @@ class Contacto(models.Model):
 
     def __str__(self):
         return self.asunto
+
+class BikeUser(models.Model):
+    id                      = models.AutoField(primary_key= True, verbose_name="id Contacto")
+    nombreDuenio            = models.CharField(max_length = 70, verbose_name = 'Nombre de enviante')
+    emailDuenio             = models.EmailField(max_length = 30, verbose_name = 'Email de enviante')
+    fechaCompra             = models.CharField(max_length = 10, verbose_name = 'fecha de compra')
+    codBoleta               = models.CharField(max_length = 10, verbose_name = 'Codigo boleta')
+    numChasis               = models.CharField(max_length = 10, verbose_name = 'Número de chasis')
+    rutDuenio               = models.CharField(max_length = 15, verbose_name = 'Rut de Dueño')
+    descripcion             = models.TextField(max_length=1000)
+    comuna                  = models.ForeignKey(Comuna, null=True, on_delete = models.CASCADE)
+    
+    def __str__(self):
+        return self.nombreDuenio

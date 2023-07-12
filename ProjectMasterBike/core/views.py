@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .models import Producto, Comuna, Categoria
-from .forms import ContactoForm, ClienteCreationForm
+from .models import Producto, Comuna, Categoria, BikeUser, ListaCompras
+from .forms import ContactoForm, ClienteCreationForm, RegistroBikeForm
 
 
 template_index   = 'core/WEB/Principal/index.html'
@@ -75,16 +75,29 @@ def signout(request):
     return redirect('/')
 
 def pedidos(request):
-
-    return render(request, 'core/WEB/ApartadoUsuario/misPedidos.html')
+    template_name = 'core/WEB/ApartadoUsuario/misPedidos.html'
+    pedidos = ListaCompras.objects.get(user=user)
+    
+    return render(request, template_name, {'pedidos':pedidos} )
 
 def usuario(request):
 
     return render(request, 'core/WEB/ApartadoUsuario/principalUsuario.html')
 
 def registro_bike(request):
-    
-    return render(request, 'core/WEB/ApartadoUsuario/registro_bike.html')
+    template_name = 'core/WEB/ApartadoUsuario/registro_bike.html'
+    comunas       = Comuna.objects.all()
+    data = {
+        
+        'comunas':comunas
+    }
+    if request.method == 'POST':
+        bike_user = RegistroBikeForm(request.POST)
+        if bike_user.is_valid():
+            bike_user.save()
+            messages.success(request, "Su bicicleta fue Registrado.")
+
+    return render(request, template_name, data )
 
 #Método para registrar usuario
 def registro_usuario(request):
@@ -128,9 +141,9 @@ def contactanos(request):
     datos ={
         'form': ContactoForm()
     }
-    if (request.method =='POST'):
+    if request.method =='POST':
         formulario = ContactoForm(request.POST)
-        if (formulario.is_valid):
+        if formulario.is_valid:
             formulario.save()
             messages.success(request, "Su mensaje ha sido enviado, le responderemos a la brevedad, gracias.")        
         return render(request, template_name, datos)

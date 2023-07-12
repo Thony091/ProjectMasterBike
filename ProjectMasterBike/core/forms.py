@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario, Contacto, User
+from .models import Usuario, Contacto, User, BikeUser
 
 class UsuarioForm(ModelForm):
     class Meta:
@@ -26,4 +26,9 @@ class ClienteCreationForm(UserCreationForm):
             if User.objects.filter(email=email).exists():
                 raise forms.ValidationError('Este correo electrónico ya está registrado')
             return email
+
+class RegistroBikeForm(ModelForm):
+    class Meta:
+        model = BikeUser
+        fields = ['nombreDuenio', 'emailDuenio', 'fechaCompra', 'codBoleta', 'numChasis', 'rutDuenio','descripcion','comuna']
     
