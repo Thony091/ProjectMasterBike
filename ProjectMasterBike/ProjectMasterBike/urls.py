@@ -16,10 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth.views import LoginView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('core.urls')),
     # path('', include('seguridad.urls')),
     path('api/', include('rest_producto.urls')),
+    path('accounts/login/', LoginView.as_view(template_name='registration/login.html'), name='login'),
 ]
+
+#La ruta admin/ se mapea al panel de administración de Django.
+#La ruta base '' se redirige a las URLs definidas en la aplicación core.
+#La ruta api/ se mapea a las URLs definidas en la aplicación rest_producto.
+#La ruta accounts/login/ utiliza la vista de inicio de sesión LoginView provista por Django, y se asigna el nombre login.
+#Además, se especifica la plantilla registration/login.html para la vista de inicio de sesión.
