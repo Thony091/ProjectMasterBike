@@ -1,33 +1,44 @@
+/** Cuando se implementa bootstrap a las paginas html no es necesario limpiar el body (margenes, separaciones, etc) bootstrap lo hace por defecto */
+
+/* En este caso ordenamos que la etiqueta body tenga el color de fondo que definimo, al estar body en todaslas paginas sera un color general */
 body{
-    background-color: rgb(248, 239, 227);
+    background-color: rgb(248, 239, 227); /* Color de fondo  */
 }
+/*  Aqui ordenamos que los cambio afectaran a las etiquetas de nombre nav */
 nav{
-    font-family: Roboto;
-    font-weight:bold ;
+    font-family: Roboto;/* refiere al estilo de la letra */
+    font-weight:bold ; /* refiere al grosor de las letras (font) "negrita"(bold)*/
     background: linear-gradient(to right,rgb(133, 212, 236),rgb(223, 145, 2),rgb(133, 212, 236) );
-    border-bottom: solid 1px black;
+    /* refiere a la transición entre dos o mas colores según lo deseado */
+    border-bottom: solid 1px black; 
+    /* refiere al borde inferior de la etiqueta en este caso una linea solida (solid) con 1px de grosor y de color negro(black) */
 }
-
+/*Aqui afectara a todas las etiquetas "span" que esten dentro de una etiqueta "a" y su vez esta ultima se encuentre dentro de una etiqueta "nav" */
 nav a span{
-    color: rgb(241, 231, 86);
+    color: rgb(241, 231, 86);/* refiere al color de la letra */
     text-shadow: 1px 1px 2px black;
-    margin: 0 1.2rem;
-    padding: 0 3px;
+    /* refiere a la sombra que tendra la letra, la orientacion en sus distintos ejes(1px eje vertical, 1px eje horizontal, 2px tamaño) tamaño 
+    y el color */
+    margin: 0 1.2rem;/* refiere a la separacion con otras etiquetas */
+    padding: 0 3px;/* refiere a la separación con el borde de su contenedor(etiqueta) */
 }
-
-
+/* Al haber un punto(.) se indica que la palabra que le sigue es una clase que solo afectará a las etiquetas que tengan agregado el nombre
+en el espacio correspondiente (class="") */
 .menu__item{
     color: white;
-    text-align: center;
+    text-align: center;/* refiere a la alineación del texto(izquierda, derecha, centro o justificado)con respecto a otras lineas si las hubiese  */
     padding: 5px;
-    font-size: 1.7rem;
+    font-size: 1.7rem;/* refiere al tamaño de la fuente rem(considera el tipo de dispositivo y se adapta) 1rem = 16px*/
 }
 
+/*Se indica afectara a todas las etiquetas "span" que esten dentro de una etiqueta "a" que tengan agregado active como clase modificadora
+ y su vez esta ultima se encuentre dentro de una etiqueta "div"   */
 div a.active span{
     font-size: 1.9rem;
     color: rgb(89, 135, 234);
     text-shadow: 1px 1px 1px rgb(0, 0, 0);
 }
+/* indica que los cambios se realizarán en todas las etiquetas div con el modificador de clase principal (class="principal") */
 div.principal{
     background-color: black;
     text-align: center;
@@ -39,9 +50,9 @@ font-size: 1.5rem;
 text-align: justify;
 }
 .contenedor{
-    margin-top: 200px;
+    margin-top: 200px;/* se refiere a la separacion que se mantendra con la/s etiqueta/s que se encuentre en la parte superior */
     border: rgb(180, 178, 178) solid 5px;
-    border-radius: 5px;
+    border-radius: 5px; /* se refiere a la curvatura de los bordes (efecto circular) a máAs pixeles, más circular */
 }
 .main_productos1{
     text-align: justify;
@@ -69,14 +80,18 @@ footer a{
     text-decoration: none;
     color: rgb(197, 227, 252);
 }
+/* Se indica el comportamiento de una etiqueta "a"(ancla) despues de haber sido visitada(despues que se le dio un click y
+ se visitó la pagina a la que te dirige esta ancla) en este caso mantendra el color indicado */
 footer a:visited{
     color: #b48346;
 }
-
+/* Se indica el comportamiento de una etiqueta "a"(ancla) cuando el puntero se posiciona encima de la etiqueta,
+en este caso cambiará al color indicado */
 footer a:hover{
     color: #041bee;
 }
-
+/* Se indica el comportamiento de una etiqueta "a"(ancla) cuando se da click sobre la etiqueta (manteniendo el click),
+en este caso cambiará al color indicado */
 footer a:active{
     color: #f5c646;
 }

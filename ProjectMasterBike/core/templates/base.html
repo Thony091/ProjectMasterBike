@@ -23,7 +23,9 @@
   </head>
   <body>
     <div class="container-fluid">      
+
           {% include "fragments/navbar.html" %}            
+          
           {% if messages %}
             {% for message in messages %}
             <div clas="notification {{message.tags}}">

@@ -11,6 +11,7 @@ from .forms import ContactoForm, ClienteCreationForm
 
 template_index   = 'core/WEB/Principal/index.html'
 template_redir   = 'core:index'
+
 # Create your views here.
 def index(request):
     template_name   = 'core/WEB/Principal/index.html'
@@ -58,12 +59,12 @@ def user_login(request):
         return render(request, template_name,{
             'form': AuthenticationForm
         })
-    else: #al ser "else" se entiende que el método es "post"
+    else: #al ser "else" se entiende que el 'method="post"'
         #Autenticamos el usuario y el password con el método "Authenticate"(método de django) y lo guardamos en una variable
         user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
         if user is None: #pregunta si el usuario no se encontro en bd reenvia el formularia y un mensaje de error.             
             return render(request, template_name,{'form': AuthenticationForm,
-                        'error': 'usuario o contraseña incorrecta'})
+                        'error': 'usuario no encontrado'})
         else:#si encuentra el usuario lo logueara y redireccionara al index
             login(request, user)
             return redirect('core:index')
@@ -88,7 +89,7 @@ def registro_bike(request):
 #Método para registrar usuario
 def registro_usuario(request):
     template_name = 'core/WEB/ApartadoUsuario/registro_usuario.html'
-    # variable que guarda la "forma" para la creacion de un usuario, se podra renderizar cuando se invoque la url asociada a este método
+    # variable que guarda la "forma" para la creacion de un usuario, se podrá renderizar cuando se invoque la url asociada a este método
     data = {
         'form': ClienteCreationForm()
     }
@@ -96,17 +97,22 @@ def registro_usuario(request):
     if request.method == 'POST':
         # variable que guarda la data enviada desde el front con el "method='post'" 
         user_creation_form = ClienteCreationForm(data=request.POST)
-
+        # se pregunta si el formulario creado anteriormente es valido(is_valid) se podran seguir los pases dentro de este "if"
         if user_creation_form.is_valid():
-            try:
-                user_creation_form.save()
-                messages.success(request, "Usuario Registrado.")
+            try:#capturamos posibles errores con un try-except
+                user_creation_form.save()#Si estamos en este punto es porque se confirmo la validacion y se guardara en la base de datos(.save)
+                messages.success(request, "Usuario Registrado.")#se envia un mensaje al front con el metodo "messages"
                 user = authenticate(username=user_creation_form.cleaned_data['username'],password=user_creation_form.cleaned_data['password1'])
-                login(request, user)
-                return redirect('core:index')
-            except IntegrityError:
+                #Variable que guarda el resultado de la autentificación efectuada con el método "authenticate" método propio del django, este método
+                #toma el username y el password recientemente creado y los compara con los de la base de datos para autentificarlos.
+                login(request, user)#Este método propio de django logea el usuario autentificado en el paso anterior
+                return redirect('core:index')#Se indica  la redirección a la pagina deseada
+            except IntegrityError:#En el caso de un error de base de datos, entrará en este apartado
+                #Se retorna a la misma página con el formulario y un mensaje de error, estos ultimos tienen que ser invocados en el front 
+                # por el desarrollador
                 return render(request, template_name, {"form": ClienteCreationForm, "error": "Usuario ya existe."})
-        else:
+        else:#De no validarse la info del formulario se llega a este apartado  que guarda el formulario vacio en una variable y la envia nuevamente
+             #a la página para ser invocado en el front por el desarrollador
             data['form'] = user_creation_form
 
     return render(request, template_name, data)
@@ -132,7 +138,7 @@ def contactanos(request):
         return render(request, template_name, datos)
 
 # Apartado Productos
-
+#Método que renderiza una página al ser llamado
 def servicios(request):
     return render(request, 'core/WEB/Productos/servicios.html')
 
@@ -144,7 +150,7 @@ def buscar_categorias(request, slug):
     # variable que guardara todos los objetos de categorias filtrados por si estan activos
     categorias      = Categoria.objects.filter(activo=True)
     # variable que guardara todos los objetos de categorias filtrados por si estan activos y sean de la categoria guardad en la variable cat
-    productos       = Producto.objects.filter(activo=True, categoria=cat)
+    productos       = Producto.objects.filter(activo=True, categoria = cat)
     context         = {"productos":productos, "categorias":categorias}
     return render(request, template_name, context)
 
@@ -160,21 +166,22 @@ def detail(request, slug):
         return render(request, template_name, context)
 #Método que agregará los productos seleccionados en el carrito de compra
 def cart(request,slug):
-    # variable que guarda el objeto de tipo producto en el caso de que tenga el nombre enviado desde el front por "slug" 
+    #Variable que guarda el objeto de tipo producto en el caso de que tenga el nombre enviado desde el front por "slug" 
     product     = Producto.objects.get(slug=slug)
-    #variable que guarda un diccionario con distintos tipos de variables inicializadas, estos serviran para guardar los productos enviados desde el front
+    #Variable que guarda un diccionario con distintos tipos de variables inicializadas, estos serviran para guardar los productos enviados desd el front
     initial     = {"items":[], "price": 0, "count": 0}
-    # variable que guarda la session actual y la une al diccicionario creado en el paso anterior y guardado en la variable "initial"
+    #Variable que guarda la session actual y la une al diccicionario creado en el paso anterior y guardado en la variable "initial"
     session     = request.session.get("data", initial)
 
-    if slug in session["items"]: # esta validación restringirá los items a solo 1 por carro
+    if slug in session["items"]:# esta validación restringirá los items a solo 1 por carro y enviará un mensaje al front
         messages.error(request,"Producto ya existe en el Carrito")
     else:
-        session["items"].append(slug)
-        session["price"] += product.precioProducto
-        session["count"] += 1
+        session["items"].append(slug)#Agregamos a la lista de "items" de la variable sesion, un nuevo item con el nombre enviad desd el front con "slug"
+        session["price"] += product.precioProducto #Sumamos a la lista de precio(price) el precio del producto enviado desde el front
+        session["count"] += 1 #Sumamos a la lista contadora(count) 1 (+=) cada vez que se agrega un nuevo producto desde el front
         request.session["data"] = session
-        messages.success(request, "Agregado Exitosamente.")
+        #Reemplazamos la data de la session actual con la variable session creada anteriormente y poblada con las iteracciones de la persona en la web.
+        messages.success(request, "Agregado Exitosamente.")#Mensaje que podra ser utilizado en el front
         #redireccionamento al detalle del producto agregado
     return redirect("core:detail", slug)
 
